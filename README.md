@@ -1,4 +1,4 @@
-# pokefy
+# Pokéfy
 
 ## **Pitch**:
 Create an application where users can create an account and create Pokémon cards out of their favorite spotify artists and albums
