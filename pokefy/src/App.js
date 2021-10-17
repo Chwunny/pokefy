@@ -5,12 +5,12 @@ import Login from './components/Login';
 import Homepage from './components/Homepage';
 
 const App = () => {
-  const [login, setLogin] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
   
 
   return (
     <div>
-      {!login ? <Login setLogin={setLogin} /> : <Homepage />}
+      {!loggedIn ? <Login setLoggedIn={setLoggedIn} /> : <Homepage />}
     </div>
   )
 }

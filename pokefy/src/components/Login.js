@@ -8,10 +8,15 @@ const Login = (props) => {
     
     const handlerFunction = (e) => {
         e.preventDefault()
-        console.log(username, password);
-            axios.post('/auth/user', {username: username, password: password}).then(res => {
-              props.setLogin(res.data)
-            }) 
+            axios.post('/auth/user', {username, password}).then(res => {
+              props.setLoggedIn(res.data)
+            })
+    }
+
+    const bypassLogin = () => {
+        axios.post('/auth/user', {username: 'chwunny', password: 'password'}).then(res => {
+            props.setLoggedIn(res.data)
+          })
     }
 
 
@@ -23,6 +28,7 @@ const Login = (props) => {
                 <input type="text" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
                 <button>Submit</button>
             </form>
+        <button onClick={bypassLogin}>Bypass Login</button>
         </div>
     )
 }
