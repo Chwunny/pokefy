@@ -1,11 +1,18 @@
 import './App.css';
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import Login from './components/Login';
+import Homepage from './components/Homepage';
 
-function App() {
+const App = () => {
+  const [login, setLogin] = useState(false)
+  
+
   return (
-    <div className="App">
-      The first steps of a long road
+    <div>
+      {!login ? <Login setLogin={setLogin} /> : <Homepage />}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
