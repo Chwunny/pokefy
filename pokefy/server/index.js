@@ -15,4 +15,4 @@ app.get('*', (req, res) => {
 app.post('/auth/user', auth.attemptLogin)
 app.post('/auth/token', auth.getToken)
 
-app.listen(PORT, console.log(`Take us to warp ${PORT} Scotty!`))
+app.listen(PORT, console.log(`Port ${PORT}, I choose you!`))
