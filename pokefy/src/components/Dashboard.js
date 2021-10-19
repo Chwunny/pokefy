@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Homepage = () => {
+const Dashboard = () => {
     const [token, setToken] = useState("fake")
     const [state, setState] = useState({ artist: "", type: ""})
     const [testData, setTestData] = useState({ artist: "", title: "", imgURL: ""})
@@ -53,4 +53,4 @@ const Homepage = () => {
 }
 
 
-export default Homepage
+export default Dashboard
