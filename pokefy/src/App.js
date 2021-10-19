@@ -9,7 +9,7 @@ const App = () => {
   
 
   return (
-    <div>
+    <div className="App">
       {!loggedIn ? <Login setLoggedIn={setLoggedIn} /> : <Homepage />}
     </div>
   )
