@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
-const Dashboard = () => {
-    const [token, setToken] = useState("fake")
+const Dashboard = (props) => {
     const [state, setState] = useState({ artist: "", type: ""})
     const [testData, setTestData] = useState({ artist: "", title: "", imgURL: ""})
 
-    useEffect(() => {
-        axios.post('/auth/token').then(res => {
-            setToken(res.data)
-        })
-    }, [])
-
     const getDrakeInfo = () => {
+        console.log(props.token);
         axios(`https://api.spotify.com/v1/search?q=drake&type=album`, {
             method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + token}
+            headers: { 'Authorization' : 'Bearer ' + props.token}
         }).then(drakeRes => {
             setTestData({ 
                 artist: drakeRes.data.albums.items[0].artists[0].name,
@@ -27,7 +22,7 @@ const Dashboard = () => {
     const search = () => {
         axios(`https://api.spotify.com/v1/search?q=${state.artist}&type=${state.type}`, {
             method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + token}
+            headers: { 'Authorization' : 'Bearer ' + props.token}
         }).then(res => {
             setTestData({
                artist: res.data.albums?.items[0].artists[0].name,
@@ -38,7 +33,7 @@ const Dashboard = () => {
     return (
         <div>
             Welcome to the homepage
-            <button onClick={() => getDrakeInfo(token)}>Get Drake Info</button>
+            <button onClick={() => getDrakeInfo()}>Get Drake Info</button>
 
             
                 <input type="text" placeholder="artist" onChange={e => setState({ artist: e.target.value, type: state.type })}/>
@@ -51,6 +46,8 @@ const Dashboard = () => {
         </div>
     )
 }
+function mapStateToProps(state){
+    return {...state.token}
+}
 
-
-export default Dashboard
+export default connect(mapStateToProps)(Dashboard)

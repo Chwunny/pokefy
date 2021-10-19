@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { setLoggedStatus } from '../redux/statusReducer'
+// import { setLoggedStatus } from '../redux/statusReducer'
 
 const Login = (props) => {
     const [username, setUsername] = useState("")
@@ -10,13 +10,18 @@ const Login = (props) => {
     const handlerFunction = (e) => {
         e.preventDefault()
             axios.post('/auth/user', {username, password}).then(res => {
-                setLoggedStatus(res.data)
+                props.dispatch({ type: 'LOG_STATUS', payload: res.data})
+                props.history.push("/")
             })
     }
 
     const bypassLogin = () => {
         axios.post('/auth/user', {username: 'chwunny', password: 'password'}).then(res => {
-            setLoggedStatus(res.data)
+            props.dispatch({ type: 'LOG_STATUS', payload: res.data})
+            axios.post('/auth/token').then(res => {
+                props.dispatch({ type: "SET_TOKEN", payload: res.data})
+            })
+            props.history.push("/")
           })
     }
 
@@ -34,7 +39,7 @@ const Login = (props) => {
 }
 
 function mapStateToProps(state) {
-    return {...state.status }
+    return {...state.status, ...state.token }
 }
 
-export default connect(mapStateToProps, {setLoggedStatus})(Login)
+export default connect(mapStateToProps)(Login)
