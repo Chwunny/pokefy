@@ -1,0 +1,45 @@
+/* 
+.spacer {
+    height: 10vh;
+    background-color: #1c1c1c;
+    width: 100vw;
+} */
+
+.none {
+    display: none;
+}
+
+.nav {
+    height: 10vh;
+    background-color: #1c1c1c;
+    /* position: fixed; */
+    width: 100vw;
+    display: flex;
+}
+
+.navItem1 {
+    width: 50%;
+    align-items: center;
+    display: flex;
+}
+
+.navItem2 {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 25vw;
+}
+
+.headerH1{
+    font-size: 4vh;
+    color: white;
+    margin-left: 4vw;
+    cursor: pointer;
+}
+
+.headerH2{
+    font-size: 2.5vh;
+    color: white;
+    cursor: pointer;
+}

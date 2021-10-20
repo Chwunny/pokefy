@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../styles/Login.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
 // import { setLoggedStatus } from '../redux/statusReducer'
@@ -26,13 +27,34 @@ const Login = (props) => {
     }
 
     return (
-        <div className="App">
-            Welcome to the login page
-            <form onSubmit={handlerFunction}>
-                <input type="text" value={username} placeholder="username" onChange={(e) => setUsername(e.target.value)}/>
-                <input type="text" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
-                <button>Submit</button>
-            </form>
+        <div className="App login">
+            <h1 className="loginH1">Pokéfy</h1>
+
+            <div className="loginContainer">
+                <div className="containerItem">
+                    <h2 className="loginH2">Please sign in</h2>
+                </div>
+                <div className="containerItem formParent">
+
+                <form onSubmit={handlerFunction} className="form">
+                    <input type="text" className="input" value={username} placeholder="   Username" onChange={(e) => setUsername(e.target.value)}/>
+                    <input type="password" className="input" value={password} placeholder="   Password" onChange={(e) => setPassword(e.target.value)}/>
+                    <button style={{display: "none"}}></button>
+                </form>
+
+                </div>
+                <div className="containerItem buttonContainer">
+                    <div className="buttonContainerDiv">
+                        <div className="spacer"></div>
+                        <button className="inptBtn">Register</button>
+                    </div>
+                    <div className="buttonContainerDiv">
+                        <p className="forgot spacer">Forgot password?</p>
+                        <button className="inptBtn" onClick={handlerFunction}>Sign in</button>
+                    </div>
+                </div>
+            </div>
+
         <button onClick={bypassLogin}>Bypass Login</button>
         </div>
     )

@@ -1,0 +1,93 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginContainer {
+    height: 50vh;
+    width: 48vw;
+    background-color: #1c1c1c;
+    display: flex;
+    flex-direction: column;
+    border: solid #C4C4C4 .2vw;
+    border-radius: 10px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+}
+
+.formParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerItem {
+    height: 33.3%;
+}
+
+.loginH1 {
+    font-size: 4.5vw;
+    color: white;
+    position: absolute;
+    top: 8vh;
+}
+
+
+.loginH2 {
+    font-size: 2.5vw;
+    margin-top: 5%;
+    color: white;
+}
+
+.input {
+    width: auto;
+    margin-top: 8%;
+    background-color: #C4C4C4;
+    height: 4vh;
+    font-size: 2vw;
+    color: #8e8e8e;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.buttonContainer{
+    width: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonContainerDiv {
+    width: 30%;
+}
+
+.spacer{
+    width: 100%;
+    height: 2vh;
+    margin-top: 1.5vh;
+    font-size: 1vh;
+}
+
+.inptBtn {
+    background-color: #fff;
+    width: 80%;
+    border-radius: 5px;
+    height: 2vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: auto;
+}
+
+.forgot {
+    color: white;
+    text-decoration: underline;
+}

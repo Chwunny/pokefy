@@ -1,7 +1,8 @@
+require("dotenv").config()
 const axios = require("axios")
 const userCreds = require('../user')
-const clientID = 'f6de03fe096941c48c361d73a058fe05'
-const clientSecret = 'd681b630f47845b3809337ab098cbbc4'
+const { clientID, clientSecret } = process.env
+
 
 module.exports = {
     attemptLogin(req, res){
