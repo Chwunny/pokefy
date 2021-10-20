@@ -5,7 +5,7 @@ import '../styles/Dashboard.css'
 import Header from './Header'
 import NewArtist from './NewArtist'
 import NewAlbum from './NewAlbum'
-
+import Card from './Card'
 
 const Dashboard = (props) => {
     const [state, setState] = useState({ artist: "", type: ""})
@@ -79,10 +79,12 @@ const Dashboard = (props) => {
 
                 <div className="cardContainer border">
                     <div className="grid-item1" onClick={() => setGuiIndex(1)}></div>
+
                     {arr.map((el, ind) => {
-                        return <div className="grid-item" key={ind}>{el}</div>
+                        return el > 6 ? <div className="grid-item" key={ind}>{el}</div> : <Card key={ind}/>
                     })}
                     
+                    <Card />
                 </div>
 
             </div>

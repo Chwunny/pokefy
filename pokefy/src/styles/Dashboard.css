@@ -11,22 +11,22 @@
     width: 90vw;
     margin-top: 5vh;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
-    column-gap: 3vw;
+    column-gap: 2vw;
     row-gap: 8vh;
     margin-bottom: 10vh;
 }
 
 .grid-item1 {
-    height: 30vh;
+    height: 41vh;
     background-image: url('../photos/PokéfyCardTest.png');
     background-size: cover;
     cursor: pointer;
 }
 
 .grid-item{
-    height: 30vh;
+    height: 41vh;
     background-image: url('../photos/PokéfyCardProto.png');
     background-size: cover;
 }

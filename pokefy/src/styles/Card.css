@@ -1,0 +1,206 @@
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card {
+    border: solid #e7c200 .32vw;
+    height: 39.75vh;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(355.64deg, #1000C5 0.11%, rgba(113, 70, 70, 0.63) 102.61%, rgba(121, 121, 121, 0.46) 102.62%, rgba(255, 255, 255, 0) 102.63%, rgba(255, 255, 255, 0) 102.64%, #FFFFFF 102.65%);
+}
+
+.cardComponent1 {
+    margin-top: 1%;
+    width: 100%;
+    height: 7%;
+    display: flex;
+}
+
+.C1-1{
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.genre {
+    background-color: #c4c4c4;
+    color: #7E7E7E;
+    margin-top: .5vh;
+    margin-right: .5vw;
+    height: 50%;
+    width: 100%;
+    border-radius: 0 15% 0px 0px;
+    font-size: .55vw;
+    padding: 0 .3vw 0 .3vw;
+    display: flex;
+    align-items: center;
+}
+.C1-2{
+    height: 100%;
+    width: 77.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.artistName {
+    margin-top: .8vh;
+    color: white;
+    font-size: .8vw;
+    font-weight: bold;
+}
+
+.hp{
+    margin-top: .8vh;
+    display: flex;
+    margin-right: 3%;
+    font-size: .8vw;
+    align-items: baseline;
+}
+
+.hp h4{
+    font-size: .5vw;
+}
+
+.C1-3{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    margin-right: .2vw;
+}
+
+.C1-3 img {
+    width: 100%;
+}
+
+.cardComponent2 {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 40%;
+}
+
+.cardComponent2 img {
+    border: solid #c4c4c4 2px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cardComponent3 {
+    margin-top: 4%;
+    width: 90%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+}
+
+.imgContainer {
+    height: 70%;
+    margin-right: .5vw;
+}
+
+.imgContainer img {
+    margin-right: .3vw;
+}
+
+.cardComponent3 h1 {
+    color: white;
+    font-size: .65vw;
+    font-weight: bold;
+}
+
+.cardComponent4 p {
+    font-size: .5vw;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.cardComponent4 {
+    width: 90%;
+    height: 7%;
+}
+
+.cardComponent5 {
+    margin-top: 2%;
+    width: 90%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+}
+
+.cardComponent5 h1 {
+    color: white;
+    font-size: .65vw;
+    font-weight: bold;
+}
+
+.cardComponent6 {
+    width: 90%;
+    height: 7%;
+}
+
+.cardComponent6 p {
+    font-size: .5vw;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.cardComponent7 {
+    width: 90%;
+    height: 2%;
+}
+
+.cardComponent8 {
+    border-top: solid black 2px;
+    width: 90%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.statsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.statsBox {
+    background-color: #c4c4c4;
+    height: 1.2vh;
+    width: auto;
+    padding: .2vh .2vw;
+    display: flex;
+    align-items: center;
+    border-radius: .1vw;
+}
+
+.stats {
+    font-size: .45vw;
+}
+
+.picContainer {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+.pic {
+    height: 1.5vh;
+}
+
+.heart {
+    height: 2vh;
+    max-height: 100%;
+}
