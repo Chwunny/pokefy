@@ -8,10 +8,8 @@ import NewAlbum from './NewAlbum'
 import Card from './Card'
 
 const Dashboard = (props) => {
-    const [state, setState] = useState({ artist: "", type: ""})
-    const [testData, setTestData] = useState({ artist: "", title: "", imgURL: ""})
     const [guiIndex, setGuiIndex] = useState(0)
-    const [arr, setArr] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13])
+    const [arr, setArr] = useState([1,2,3,4,5,6,7,8,])
 
     const plus = () => {
         switch (guiIndex) {
@@ -45,30 +43,7 @@ const Dashboard = (props) => {
         setGuiIndex(0)
     }
 
-    const getDrakeInfo = () => {
-        console.log(props.token);
-        axios(`https://api.spotify.com/v1/search?q=drake&type=album`, {
-            method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + props.token}
-        }).then(drakeRes => {
-            setTestData({ 
-                artist: drakeRes.data.albums.items[0].artists[0].name,
-                title: drakeRes.data.albums.items[0].name,
-                imgURL: drakeRes.data.albums.items[0].images[0].url })
-        })
-    }
-
-    const search = () => {
-        axios(`https://api.spotify.com/v1/search?q=${state.artist}&type=${state.type}`, {
-            method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + props.token}
-        }).then(res => {
-            setTestData({
-               artist: res.data.albums?.items[0].artists[0].name,
-               title: res.data.albums.items[0].name,
-               imgURL: res.data.albums.items[0].images[0].url })
-    })
-    }
+    
     return(
         <div>
             <Header name={'Dashboard'}/>
