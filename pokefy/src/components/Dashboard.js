@@ -10,6 +10,20 @@ import Card from './Card'
 const Dashboard = (props) => {
     const [guiIndex, setGuiIndex] = useState(0)
     const [arr, setArr] = useState([1,2,3,4,5,6,7,8,])
+    const [testCard, setTestCard] = useState([
+        [{ name: 'Drake', id: '3TVXtAsR1Inumwj472S9r4', popularity: '100', followers: '58030368', genre: 'canadian hip hop'},
+        {name: 'Certified Lover Boy', id: '3SpBlxme9WbeQdI9kx7KAV'},
+        ['Champagne Poetry', 'Papi’s Home', 'Girls Want Girls (with Lil Baby)', 'In The Bible (with Lil Durk & Giveon)', 'Love All (with JAY-Z)', 'Fair Trade (with Travis Scott)', 'Way 2 Sexy (with Future & Young Thug)'],
+        {name: 'Dark Lane Demo Tapes', id: '6OQ9gBfg5EXeNAEwGSs6jK'},
+        ['Deep Pockets', 'When To Say When', 'Chicago Freestyle (feat. Giveon)', 'Not You Too (feat. Chris Brown)', 'Toosie Slide', 'Desires (with Future)', 'Time Flies'],
+        {type: 'normal'}],
+        [{ name: 'Drake', id: '3TVXtAsR1Inumwj472S9r4', popularity: '78', followers: '58,030,368', genre: 'hip hop'},
+        {name: 'Certified Lover Boy', id: '3SpBlxme9WbeQdI9kx7KAV'},
+        ['Champagne Poetry', 'Papi’s Home', 'Girls Want Girls (with Lil Baby)', 'In The Bible (with Lil Durk & Giveon)', 'Love All (with JAY-Z)', 'Fair Trade (with Travis Scott)', 'Way 2 Sexy (with Future & Young Thug)'],
+        {name: 'Dark Lane Demo Tapes', id: '6OQ9gBfg5EXeNAEwGSs6jK'},
+        ['Deep Pockets', 'When To Say When', 'Chicago Freestyle (feat. Giveon)', 'Not You Too (feat. Chris Brown)', 'Toosie Slide', 'Desires (with Future)', 'Time Flies'],
+        {type: 'psychic'}]
+    ])
 
     const plus = () => {
         switch (guiIndex) {
@@ -55,11 +69,20 @@ const Dashboard = (props) => {
                 <div className="cardContainer border">
                     <div className="grid-item1" onClick={() => setGuiIndex(1)}></div>
 
-                    {arr.map((el, ind) => {
+                    {/* {arr.map((el, ind) => {
                         return el > 6 ? <div className="grid-item" key={ind}>{el}</div> : <Card key={ind}/>
+                    })} */}
+                    {testCard.map((el, idx) => {
+                        return <Card 
+                        key={idx} name={el[0].name} id={el[0].id} pop={el[0].popularity} foll={el[0].followers} gen={el[0].genre}
+                        alb1={el[1].name}
+                        alb1Tracks={el[2]}
+                        alb2={el[3].name}
+                        alb2Tracks={el[4]}
+                        type={el[5].type}
+                        />
                     })}
-                    
-                    <Card />
+                    {/* <Card /> */}
                 </div>
 
             </div>

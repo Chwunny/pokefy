@@ -26,7 +26,7 @@ const TestAPI = (props) => {
         console.log(val[3])
         console.log(val[4])
         console.log(val[5])
-        setSelected({ name: val[0], id: val[1], popularity: val[2], followers: val[3], genres: val[4] })
+        setSelected({ name: val[0], id: val[1], popularity: val[2], followers: val[3], genre: val[4] })
    
         axios(`https://api.spotify.com/v1/artists/${val[1]}/albums`, {
             method: 'GET',

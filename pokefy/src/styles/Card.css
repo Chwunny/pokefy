@@ -3,22 +3,13 @@ img {
   max-height: 100%;
 }
 
-.card {
+#card {
   border: solid #e7c200 0.32vw;
   height: 39.75vh;
   border-radius: 3%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(
-    355.64deg,
-    #1000c5 0.11%,
-    rgba(113, 70, 70, 0.63) 102.61%,
-    rgba(121, 121, 121, 0.46) 102.62%,
-    rgba(255, 255, 255, 0) 102.63%,
-    rgba(255, 255, 255, 0) 102.64%,
-    #ffffff 102.65%
-  );
 }
 
 .cardComponent1 {
@@ -43,10 +34,14 @@ img {
   height: 50%;
   width: 100%;
   border-radius: 0 15% 0px 0px;
-  font-size: 0.55vw;
+  /* font-size: 0.55vw; */
   padding: 0 0.3vw 0 0.3vw;
   display: flex;
   align-items: center;
+}
+
+.genre h2 {
+  font-size: 0.35vw;
 }
 .C1-2 {
   height: 100%;
@@ -210,4 +205,34 @@ img {
 .heart {
   height: 2vh;
   max-height: 100%;
+}
+
+.ghost {
+  background: linear-gradient(
+    355.64deg,
+    #1000c5 0.11%,
+    rgba(113, 70, 70, 0.63) 102.61%,
+    rgba(121, 121, 121, 0.46) 102.62%,
+    rgba(255, 255, 255, 0) 102.63%,
+    rgba(255, 255, 255, 0) 102.64%,
+    #ffffff 102.65%
+  );
+}
+
+.normal {
+  background: linear-gradient(
+    333.65deg,
+     rgba(0, 255, 240, 0.170792) 0.52%,
+     #06C8BC 9.42%, 
+     rgba(234, 250, 249, 0.9) 86.92%, 
+     #FFFFFF 100.98%, 
+     rgba(255, 255, 255, 0) 100.99%,
+     #06AF02 101%, 
+     rgba(113, 70, 70, 0.63) 101.01%, 
+     rgba(121, 121, 121, 0.79) 101.02%, 
+     rgba(121, 121, 121, 0.79) 101.03%);
+}
+
+.psychic {
+  background: linear-gradient(152.67deg, #E80DFB 0%, rgba(9, 150, 181, 0.63) 99.72%, rgba(121, 121, 121, 0.46) 106.89%, rgba(255, 255, 255, 0) 106.9%, rgba(255, 255, 255, 0) 106.91%, rgba(255, 255, 255, 0.27) 106.92%);
 }
