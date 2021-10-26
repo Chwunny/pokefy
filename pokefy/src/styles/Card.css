@@ -1,3 +1,7 @@
+body {
+  overflow: overlay;
+}
+
 img {
   max-width: 100%;
   max-height: 100%;
@@ -54,7 +58,7 @@ img {
 .artistName {
   margin-top: 0.8vh;
   color: white;
-  font-size: 0.8vw;
+  font-size: auto;
   font-weight: bold;
 }
 
@@ -85,6 +89,7 @@ img {
 .cardComponent2 {
   display: flex;
   justify-content: center;
+  margin-top: 3%;
   width: 90%;
   height: 40%;
 }
@@ -96,12 +101,24 @@ img {
 }
 
 .cardComponent3 {
-  margin-top: 4%;
+  margin-top: 2%;
   width: 90%;
   height: 6%;
   display: flex;
   align-items: center;
+  overflow: auto;
 }
+
+.cardComponent3::-webkit-scrollbar {
+  width: .3vw;
+}
+
+.cardComponent3::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 15%;
+}
+
+
 
 .imgContainer {
   height: 70%;
@@ -109,26 +126,41 @@ img {
 }
 
 .imgContainer img {
-  margin-right: 0.3vw;
+  margin-right: 0.4vw;
 }
 
 .cardComponent3 h1 {
   color: white;
-  font-size: 0.65vw;
+  font-size: clamp(.4vw, .6vw, 100%);
   font-weight: bold;
+  max-width: 75%;
 }
 
 .cardComponent4 p {
-  font-size: 0.5vw;
+  font-size: .5vw;
   font-weight: bold;
   color: white;
   text-align: center;
 }
 
 .cardComponent4 {
+  margin-top: 1%;
   width: 90%;
-  height: 7%;
+  height: 10%;
+  overflow: auto;
+  overflow-x: hidden;
 }
+
+.cardComponent4::-webkit-scrollbar {
+  width: .3vw;
+}
+
+.cardComponent4::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 15%;
+}
+
+
 
 .cardComponent5 {
   margin-top: 2%;
@@ -136,21 +168,44 @@ img {
   height: 6%;
   display: flex;
   align-items: center;
+  overflow: auto;
+}
+
+.cardComponent5::-webkit-scrollbar {
+  width: .3vw;
+}
+
+.cardComponent5::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 15%;
 }
 
 .cardComponent5 h1 {
   color: white;
-  font-size: 0.65vw;
+  font-size: clamp(.4vw, .6vw, 100%);
   font-weight: bold;
+  max-width: 75%;
 }
 
 .cardComponent6 {
+  margin-top: 2%;
   width: 90%;
   height: 7%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.cardComponent6::-webkit-scrollbar {
+  width: .3vw;
+}
+
+.cardComponent6::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 15%;
 }
 
 .cardComponent6 p {
-  font-size: 0.5vw;
+  font-size: .5vw;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -164,7 +219,7 @@ img {
 .cardComponent8 {
   border-top: solid black 2px;
   width: 90%;
-  height: 15%;
+  height: 13%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -222,17 +277,109 @@ img {
 .normal {
   background: linear-gradient(
     333.65deg,
-     rgba(0, 255, 240, 0.170792) 0.52%,
-     #06C8BC 9.42%, 
-     rgba(234, 250, 249, 0.9) 86.92%, 
-     #FFFFFF 100.98%, 
-     rgba(255, 255, 255, 0) 100.99%,
-     #06AF02 101%, 
-     rgba(113, 70, 70, 0.63) 101.01%, 
-     rgba(121, 121, 121, 0.79) 101.02%, 
-     rgba(121, 121, 121, 0.79) 101.03%);
+    rgba(0, 255, 240, 0.170792) 0.52%,
+    #06c8bc 9.42%,
+    rgba(234, 250, 249, 0.9) 86.92%,
+    #ffffff 100.98%,
+    rgba(255, 255, 255, 0) 100.99%,
+    #06af02 101%,
+    rgba(113, 70, 70, 0.63) 101.01%,
+    rgba(121, 121, 121, 0.79) 101.02%,
+    rgba(121, 121, 121, 0.79) 101.03%
+  );
 }
 
 .psychic {
-  background: linear-gradient(152.67deg, #E80DFB 0%, rgba(9, 150, 181, 0.63) 99.72%, rgba(121, 121, 121, 0.46) 106.89%, rgba(255, 255, 255, 0) 106.9%, rgba(255, 255, 255, 0) 106.91%, rgba(255, 255, 255, 0.27) 106.92%);
+  background: linear-gradient(
+    152.67deg,
+    #e80dfb 0%,
+    rgba(9, 150, 181, 0.63) 99.72%,
+    rgba(121, 121, 121, 0.46) 106.89%,
+    rgba(255, 255, 255, 0) 106.9%,
+    rgba(255, 255, 255, 0) 106.91%,
+    rgba(255, 255, 255, 0.27) 106.92%
+  );
+}
+
+.dark {
+  background: linear-gradient(
+    90deg,
+    #000000 0%,
+    rgba(70, 70, 70, 0.63) 73.44%,
+    rgba(121, 121, 121, 0.46) 99.96%,
+    rgba(255, 255, 255, 0) 99.97%,
+    rgba(255, 255, 255, 0) 99.98%,
+    rgba(255, 255, 255, 0.27) 99.99%
+  );
+}
+
+.electric {
+  background: linear-gradient(
+    26.91deg,
+    #ffc700 -0.47%,
+    rgba(211, 40, 2, 0.95) 99.94%,
+    rgba(255, 255, 255, 0) 99.95%,
+    rgba(121, 121, 121, 0.46) 99.96%,
+    rgba(255, 255, 255, 0) 99.97%,
+    rgba(255, 255, 255, 0) 99.98%
+  );
+}
+
+.steel {
+  background: radial-gradient(
+    110.65% 84.5% at 34.38% 70.08%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(0, 35, 126, 0.74) 66.15%,
+    #000000 99.95%,
+    rgba(121, 121, 121, 0.46) 99.96%,
+    rgba(255, 255, 255, 0) 99.97%,
+    rgba(255, 255, 255, 0) 99.98%
+  );
+}
+
+.water {
+  background: linear-gradient(
+    197.81deg,
+    #0b4aed 7.01%,
+    rgba(136, 223, 251, 0.63) 101.19%,
+    rgba(121, 121, 121, 0.46) 101.2%,
+    rgba(255, 255, 255, 0) 101.21%,
+    rgba(255, 255, 255, 0) 101.22%,
+    rgba(0, 193, 254, 0.62) 101.23%
+  );
+}
+
+.fire {
+  background: linear-gradient(
+      43.83deg,
+      rgba(255, 92, 0, 0.2) 23.85%,
+      rgba(255, 138, 0, 0) 88.1%
+    ),
+    linear-gradient(
+      334.51deg,
+      #ff0000 0.51%,
+      rgba(113, 70, 70, 0.63) 100.4%,
+      rgba(121, 121, 121, 0.46) 100.41%,
+      rgba(255, 255, 255, 0) 100.42%,
+      rgba(255, 255, 255, 0) 100.43%,
+      #ffffff 100.44%
+    );
+}
+
+.grass {
+  background: linear-gradient(
+    180deg,
+    #b6cd2b 0%,
+    rgba(0, 103, 198, 0.489583) 99.99%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.fighting {
+  background: linear-gradient(
+    180deg,
+    #f21e1e 0%,
+    #000000 99.99%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }

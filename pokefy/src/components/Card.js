@@ -1,10 +1,37 @@
-import React, {useState}from "react";
+import React, {useState, useEffect}from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+
+
 import "../styles/Card.css";
 import ghost from "../photos/120px-Ghost_icon_SwSh.png";
+import electric from "../photos/Electric_icon_SwSh.png"
+import dark from "../photos/Dark_icon_SwSh.png"
+import psychic from "../photos/120px-Psychic_icon_SwSh.png"
+import steel from "../photos/120px-Steel_icon_SwSh.png"
+import water from "../photos/120px-Water_icon_SwSh.png"
+import fire from "../photos/Fire_icon_SwSh.png"
+import normal from "../photos/120px-Normal_icon_SwSh.png"
+import grass from "../photos/120px-Grass_icon_SwSh.png"
+import fighting from "../photos/120px-Fighting_icon_SwSh.png"
+
 import ghostType from "../photos/120px-GhostIC.png";
+import electricType from "../photos/120px-ElectricIC.png"
+import darkType from "../photos/DarkIC.png"
+import psychicType from "../photos/120px-PsychicIC.png"
+import steelType from "../photos/120px-SteelIC.png"
+import waterType from "../photos/120px-WaterIC.png"
+import fireType from "../photos/120px-FireIC.png"
+import normalType from "../photos/120px-NormalIC.png"
+import grassType from "../photos/120px-GrassIC.png"
+import fightingType from "../photos/120px-FightingIC.png"
+
 import heart from "../photos/akar-icons_heart.png";
 
+
 const Card = (props) => {
+  const [img, setImg] = useState("") 
+
   const {
     name, id, pop, foll, gen,
     alb1,
@@ -13,11 +40,82 @@ const Card = (props) => {
     alb2Tracks,
     type
   } = props
+
+  let img1;
+  let img2;
+  let alt;
+
+  switch (type) {
+    case "ghost":
+      img1 = ghost
+      img2 = ghostType
+      alt = "Ghost type icon"
+      break;
+    case "electric":
+      img1 = electric
+      img2 = electricType
+      alt = "Electric type icon"
+      break;
+    case "dark":
+      img1 = dark
+      img2 = darkType
+      alt = "Dark type icon"
+      break;
+    case "psychic":
+      img1 = psychic
+      img2 = psychicType
+      alt = "Psychic type icon"
+      break;
+    case "steel":
+      img1 = steel
+      img2 = steelType
+      alt = "Steel type icon"
+      break;
+    case "water":
+      img1 = water
+      img2 = waterType
+      alt = "Water type icon"
+      break;
+    case "fire":
+      img1 = fire
+      img2 = fireType
+      alt = "Fire type icon"
+      break;
+    case "normal":
+      img1 = normal
+      img2 = normalType
+      alt = "Normal type icon"
+      break;
+    case "grass":
+      img1 = grass
+      img2 = grassType
+      alt = "Grass type icon"
+      break;
+    case "fighting":
+      img1 = fighting
+      img2 = fightingType
+      alt = "Fighting type icon"
+      break;
+    default:
+      img1 = normal
+      img2 = normalType
+      alt = "Normal type icon"
+      break;
+  }
   
-  console.log(name);
-  // const [state, setState] = useState(test)
-  // console.log(state);
-  // console.log(test.name)
+  useEffect(() => {
+    axios(`https://api.spotify.com/v1/search?q=${name}&type=artist&offset=0&limit=1`, {
+            method: 'GET',
+            headers: { 'Authorization' : 'Bearer ' + props.token}
+        }).then(res => {
+            setImg(res.data.artists.items[0].images[1].url);
+        })  
+  }, [name, props.token])
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div className={type} id="card">
       <div className="cardComponent1 ">
@@ -34,37 +132,37 @@ const Card = (props) => {
           </div>
         </div>
         <div className="C1-3 ">
-          <img src={ghost} alt="ghost type" />
+          <img src={img1} alt="ghost type" />
         </div>
       </div>
       <div className="cardComponent2 ">
         <img
-          src="https://i.scdn.co/image/ab676161000051749e46a78c5cd2f7a8e7669980"
-          alt=""
+          src={img}
+          alt="Artist"
         />
       </div>
       <div className="cardComponent3 ">
         <div className="imgContainer">
-          <img src={ghost} alt="ghost type" />
-          <img src={ghost} alt="ghost type" />
+          <img src={img1} alt={alt} />
+          <img src={img1} alt={alt} />
         </div>
         <h1>{alb1}</h1>
       </div>
       <div className="cardComponent4 ">
         <p>
-          {alb1Tracks}
+          {alb1Tracks.join(", ")}
         </p>
       </div>
       <div className="cardComponent5 ">
         <div className="imgContainer">
-          <img src={ghost} alt="ghost type" />
-          <img src={ghost} alt="ghost type" />
+          <img src={img1} alt={alt} />
+          <img src={img1} alt={alt} />
         </div>
         <h1>{alb2}</h1>
       </div>
       <div className="cardComponent6 ">
         <p>
-         {alb2Tracks}
+         {alb2Tracks.join(", ")}
         </p>
       </div>
       <div className="cardComponent7 "></div>
@@ -74,12 +172,12 @@ const Card = (props) => {
             <p className="stats">Popularity {pop}/100</p>
           </div>
           <div className="statsBox">
-            <p className="stats">Followers {foll}</p>
+            <p className="stats">Followers {numberWithCommas(foll)}</p>
           </div>
         </div>
         <div className="picContainer ">
           <div className="pic">
-            <img src={ghostType} alt="ghost type" />
+            <img src={img2} alt={alt} />
           </div>
           <div className="heart ">
             <img src={heart} alt="heart" />
@@ -90,4 +188,8 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+function mapStateToProps(state){
+  return {...state.token}
+}
+
+export default connect(mapStateToProps)(Card)

@@ -1,9 +1,114 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { connect } from 'react-redux';
+import axios from 'axios';
+import ArtistDropdown from './ArtistDropdown';
+import Dropdown from './Dropdown';
 import '../styles/NewArtist.css'
 
 const NewArtist = (props) => {
     let lArrow = "\u003C";
     let rArrow = "\u003E";
+
+    //Data manipulation state
+    const [data, setData] = useState([])
+    const [selected, setSelected] = useState({})
+    const [albumRes, setAlbumRes] = useState([])
+    const [album1, setAlbum1] = useState([])
+    const [album1Tracks, setAlbum1Tracks] = useState([])
+    const [album2, setAlbum2] = useState([])
+    const [album2Tracks, setAlbum2Tracks] = useState([])
+    const [type, setType] = useState({type: ""})
+
+
+    const search = (val) => {
+        if (val.length > 2){
+            axios(`https://api.spotify.com/v1/search?q=${val}&type=artist&offset=0&limit=10`, {
+                method: 'GET',
+                headers: { 'Authorization' : 'Bearer ' + props.token}
+            }).then(res => {
+                setData(res.data.artists.items)
+                console.log(res.data.artists.items);
+            })
+        }
+    }
+
+    const handleChange = async (e) => {
+        let val = e.target.value.split(",")
+        setSelected({ name: val[0], id: val[1], popularity: val[2], followers: val[3], genre: val[4] })
+   
+        axios(`https://api.spotify.com/v1/artists/${val[1]}/albums`, {
+            method: 'GET',
+            headers: { 'Authorization' : 'Bearer ' + props.token}
+        }).then(res => {
+            setAlbumRes(res.data.items)
+            console.log(res.data.items);
+        })
+    }
+
+    const handleAlbum1Change = (e) => {
+        let val = e.target.value.split(",")
+        console.log(val[0]);
+        console.log(val[1]);
+
+        setAlbum1({ name: val[0], id: val[1]})
+        
+        axios(`https://api.spotify.com/v1/albums/${val[1]}/tracks`, {
+            method: 'GET',
+            headers: { 'Authorization' : 'Bearer ' + props.token}
+        }).then(res => {
+            res.data.items.forEach((el, index) => {
+                if (index <= 6){
+                    setAlbum1Tracks(data => [...data, el.name])
+                }
+                
+            })
+            console.log(res.data.items);
+        })
+        
+    }
+
+    const handleAlbum2Change = (e) => {
+        let val = e.target.value.split(",")
+        console.log(val[0]);
+        console.log(val[1]);
+
+        setAlbum2({ name: val[0], id: val[1]})
+        
+        axios(`https://api.spotify.com/v1/albums/${val[1]}/tracks`, {
+            method: 'GET',
+            headers: { 'Authorization' : 'Bearer ' + props.token}
+        }).then(res => {
+            res.data.items.forEach((el, index) => {
+                if (index <= 6){
+                    setAlbum2Tracks(data => [...data, el.name])
+                }
+                
+            })
+            console.log(res.data.items);
+        })
+        
+    }
+
+    const selectType = (e) => {
+        setType({type: e.target.value});
+    }
+
+
+    const create = () => {
+        props.newCard([
+            selected,
+            album1,
+            album1Tracks,
+            album2,
+            album2Tracks,
+            type
+        ])
+
+        props.cancel()
+        
+    }
+
+
     return (
         <div>
             <div className="cardGui ">
@@ -14,12 +119,13 @@ const NewArtist = (props) => {
                     <div className="middleBlock">
                     <div className="arrow" onClick={props.minus}>{lArrow}</div>
                         <div className="guiItem2 guiForm">
-                            <input type="text" className="guiInput " placeholder="Artist"/>
-                            <input type="text" className="guiInput " placeholder="Album 1"/>
-                            <input type="text" className="guiInput " placeholder="Album 2"/>
-                            <div className="guiSelect">
-                                <label htmlFor="type">Choose a type: </label>
-                                <select name="type" id="type" >
+                            <input type="text" className="guiInput " placeholder="Artist" onChange={(e) => search(e.target.value)}/>
+                            { data.length > 0 && <ArtistDropdown data={data} handleChange={handleChange} />}
+                            <Dropdown data={albumRes} handleChange={handleAlbum1Change} number={"one"} />
+                            {typeof album1 === "object" && <Dropdown data={albumRes} handleChange={handleAlbum2Change} number={"two"}/>}
+                            
+                                <select name="type" className="guiInput" id="type" onChange={selectType} >
+                                    <option value="">Select a type</option>
                                     <option value="dark">Dark</option>
                                     <option value="electric">Electric</option>
                                     <option value="psychic">Psychic</option>
@@ -31,7 +137,7 @@ const NewArtist = (props) => {
                                     <option value="grass">Grass</option>
                                     <option value="fighting">Fighting</option>
                                 </select>
-                            </div>
+                          
                         </div>
                         <div className="arrow" onClick={props.plus}>{rArrow}</div>
                     </div>
@@ -41,7 +147,7 @@ const NewArtist = (props) => {
                         <button className="guiBtn cancel" onClick={props.cancel}>
                             Cancel
                         </button>
-                        <button className="guiBtn create">
+                        <button className="guiBtn create" onClick={create}>
                             Create
                         </button>
                     </div>
@@ -50,4 +156,8 @@ const NewArtist = (props) => {
     )
 }
 
-export default NewArtist
+function mapStateToProps(state){
+    return {...state.token}
+}
+
+export default connect(mapStateToProps)(NewArtist)

@@ -12,18 +12,11 @@ const Login = (props) => {
         e.preventDefault()
             axios.post('/auth/user', {username, password}).then(res => {
                 props.dispatch({ type: 'LOG_STATUS', payload: res.data})
+                axios.post('/auth/token').then(res => {
+                    props.dispatch({ type: "SET_TOKEN", payload: res.data})
+                })
                 props.history.push("/")
             })
-    }
-
-    const bypassLogin = () => {
-        axios.post('/auth/user', {username: 'chwunny', password: 'password'}).then(res => {
-            props.dispatch({ type: 'LOG_STATUS', payload: res.data})
-            axios.post('/auth/token').then(res => {
-                props.dispatch({ type: "SET_TOKEN", payload: res.data})
-            })
-            props.history.push("/")
-          })
     }
 
     return (
@@ -46,7 +39,7 @@ const Login = (props) => {
                 <div className="containerItem buttonContainer">
                     <div className="buttonContainerDiv">
                         <div className="spacer"></div>
-                        <button className="inptBtn">Register</button>
+                        <button className="inptBtn" onClick={() => props.history.push("/register")}>Register</button>
                     </div>
                     <div className="buttonContainerDiv">
                         <p className="forgot spacer">Forgot password?</p>
@@ -55,7 +48,6 @@ const Login = (props) => {
                 </div>
             </div>
 
-        <button onClick={bypassLogin}>Bypass Login</button>
         </div>
     )
 }

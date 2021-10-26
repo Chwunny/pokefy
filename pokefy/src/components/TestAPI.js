@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import Dropdown from './Dropdown'
@@ -6,8 +6,6 @@ import ArtistDropdown from './ArtistDropdown'
 
 
 const TestAPI = (props) => {
-    const [state, setState] = useState({ artist: "", type: ""})
-    const [testData, setTestData] = useState({ artist: "", title: "", imgURL: ""})
     const [data, setData] = useState([])
     const [selected, setSelected] = useState({})
     const [idIndex, setIdIndex] = useState(0)

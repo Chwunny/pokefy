@@ -1,19 +1,44 @@
 require("dotenv").config()
 const axios = require("axios")
-const userCreds = require('../user')
+const bcrypt = require("bcryptjs")
 const { clientID, clientSecret } = process.env
 
 
 module.exports = {
-    attemptLogin(req, res){
-        const { username, password } = req.body
-        console.log(req.body);
+    register: async (req, res) => {
+        const db = req.app.get('db')
 
-        if (username === userCreds.username && password === userCreds.password){
-            res.status(200).send(true)
-        } else {
-            res.status(401).send(false)
+        const { username, password, email } = req.body
+        // console.log(username, password, email);
+
+        const [existingUser] = await db.get_user_by_username([username])
+        if (existingUser) {
+            return res.status(409).send('User already exists')
         }
+
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(password, salt)
+
+        const [newUser] = await db.register_user([email, username, hash])
+
+        res.status(200).send(newUser)
+    },
+    attemptLogin: async (req, res) => {
+        const db = req.app.get('db')
+        const { username, password } = req.body
+        const [existingUser] = await db.get_user_by_username([username])
+
+        if(!existingUser){
+            res.status(404).send('User does not exist')
+        }
+
+        const authenticated = bcrypt.compareSync(password, existingUser.hash)
+
+        if(!authenticated){
+            return res.status(403).send('Incorrect password')
+        }
+
+        res.status(200).send(true)
     },
     getToken: async (req, res) => {
         await axios('https://accounts.spotify.com/api/token', {
@@ -24,6 +49,7 @@ module.exports = {
             },
             data: 'grant_type=client_credentials'
         }).then(token => {
+            console.log(token.data.access_token)
             res.status(200).send(token.data.access_token)
         }).catch(error => {
             console.log(error);

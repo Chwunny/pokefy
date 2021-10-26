@@ -1,0 +1,43 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.containerItem1 {
+    height: 25%;
+}
+.containerItem2 {
+    height: 50%;
+}
+
+.containerItem3 {
+    height: 25%;
+    width: 50%;
+}
+
+.inptBtnR1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: auto;
+    border-radius: 5px;
+    height: 2vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: .6vw;
+}
+
+.inptBtnR2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 4vw;
+    border-radius: 5px;
+    height: 2vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: .65vw;
+}
