@@ -21,7 +21,7 @@ app.post('/auth/register', auth.register)
 app.post('/auth/token', auth.getToken)
 
 massive({
-    connectionString: 'postgres://bgvvioiyvxhaac:9c6138aa038a5aab5ba0509a33b3196ca365858f604ae53dc1b60289b4fb3f00@ec2-54-211-160-34.compute-1.amazonaws.com:5432/dake7lljfo39g8',
+    connectionString: CONNECTION_STRING,
     ssl: {
         rejectUnauthorized: false
     }
