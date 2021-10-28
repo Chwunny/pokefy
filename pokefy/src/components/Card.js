@@ -150,7 +150,7 @@ const Card = (props) => {
       </div>
       <div className="cardComponent4 ">
         <p>
-          {alb1Tracks.join(", ")}
+          {alb1Tracks}
         </p>
       </div>
       <div className="cardComponent5 ">
@@ -162,7 +162,7 @@ const Card = (props) => {
       </div>
       <div className="cardComponent6 ">
         <p>
-         {alb2Tracks.join(", ")}
+         {alb2Tracks}
         </p>
       </div>
       <div className="cardComponent7 "></div>

@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import '../styles/Login.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
-// import { setLoggedStatus } from '../redux/statusReducer'
 
 const Login = (props) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+
+
     
     const handlerFunction = (e) => {
         e.preventDefault()

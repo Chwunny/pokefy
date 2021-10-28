@@ -9,9 +9,7 @@ const Register = (props) => {
   const [resMsg, setResMsg] = useState("")
 
   const handleRegister = () => {
-    // console.log(email, username, password)
     if (username.length && password.length && email.length){
-        console.log('attempting');
         axios.post('/auth/register', {username, password, email}).then(res => {
             setResMsg("Account created succesfully!")
         }).catch(err => {

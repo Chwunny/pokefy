@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-// import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import '../styles/Dashboard.css'
 import Header from './Header'
@@ -10,19 +10,19 @@ import Card from './Card'
 
 const Dashboard = (props) => {
     const [guiIndex, setGuiIndex] = useState(0)
-    const [testCard, setTestCard] = useState([
-        [{ name: 'Drake', id: '3TVXtAsR1Inumwj472S9r4', popularity: '100', followers: '58030368', genre: 'hip hop'},
-        {name: 'Certified Lover Boy', id: '3SpBlxme9WbeQdI9kx7KAV'},
-        ['Champagne Poetry', 'Papi’s Home', 'Girls Want Girls (with Lil Baby)', 'In The Bible (with Lil Durk & Giveon)', 'Love All (with JAY-Z)', 'Fair Trade (with Travis Scott)', 'Way 2 Sexy (with Future & Young Thug)'],
-        {name: 'Dark Lane Demo Tapes', id: '6OQ9gBfg5EXeNAEwGSs6jK'},
-        ['Deep Pockets', 'When To Say When', 'Chicago Freestyle (feat. Giveon)', 'Not You Too (feat. Chris Brown)', 'Toosie Slide', 'Desires (with Future)', 'Time Flies'],
-        {type: 'ghost'}]
-    ])
+    const [count, setCount] = useState(0)
+    const [cardData, setCardData] = useState([])
 
-    const newCard = (arr) => {
-        setTestCard(data => [arr, ...data])
+    useEffect(() => {
+        axios.post('/user/cards').then(res => {
+            setCardData(res.data)
+        })
+    },[count])
+
+    const handleCount = () => {
+        setCount(count+1)
     }
-
+    
     const plus = () => {
         switch (guiIndex) {
             case 0:
@@ -61,20 +61,22 @@ const Dashboard = (props) => {
             <Header name={'Dashboard'}/>
             <div className="dashboard">
                 
-                { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} newCard={newCard}/>}
+                { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
                 { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus}/>}
 
                 <div className="cardContainer border">
-                    <div className="grid-item1" onClick={() => setGuiIndex(1)}></div>
+                    <div className="grid-item1" onClick={() => setGuiIndex(1)}>
+                        
+                    </div>
 
-                    {testCard.map((el, idx) => {
+                    {cardData.map((el, idx) => {
                         return <Card 
-                        key={idx} name={el[0].name} id={el[0].id} pop={el[0].popularity} foll={el[0].followers} gen={el[0].genre}
-                        alb1={el[1].name}
-                        alb1Tracks={el[2]}
-                        alb2={el[3].name}
-                        alb2Tracks={el[4]}
-                        type={el[5].type}
+                        key={idx} name={el.name} id={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
+                        alb1={el.album_1}
+                        alb1Tracks={el.alb1_tracks}
+                        alb2={el.album_2}
+                        alb2Tracks={el.alb2_tracks}
+                        type={el.card_type}
                         />
                     })}
 
@@ -89,14 +91,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(Dashboard)
-
-
-// Welcome to the homepage
-//                 <button onClick={() => getDrakeInfo()}>Get Drake Info</button>
-            
-//                     <input type="text" placeholder="artist" onChange={e => setState({ artist: e.target.value, type: state.type })}/>
-//                     <input type="text" placeholder="type" onChange={e => setState({ artist: state.artist, type: e.target.value })}/>
-//                     <button onClick={search}>Submit</button>
-//                 <h1>{testData.artist}</h1>
-//                 <h2>{testData.title}</h2>
-//                 <img src={testData.imgURL} alt={testData.title} />

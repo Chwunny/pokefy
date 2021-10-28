@@ -1,0 +1,1 @@
+SELECT * FROM artist_card WHERE user_id = $1

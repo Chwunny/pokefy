@@ -9,7 +9,6 @@ module.exports = {
         const db = req.app.get('db')
 
         const { username, password, email } = req.body
-        // console.log(username, password, email);
 
         const [existingUser] = await db.get_user_by_username([username])
         if (existingUser) {
@@ -38,6 +37,9 @@ module.exports = {
             return res.status(403).send('Incorrect password')
         }
 
+        req.session.userId = existingUser.id
+        req.session.username = existingUser.username
+ 
         res.status(200).send(true)
     },
     getToken: async (req, res) => {
@@ -49,7 +51,6 @@ module.exports = {
             },
             data: 'grant_type=client_credentials'
         }).then(token => {
-            console.log(token.data.access_token)
             res.status(200).send(token.data.access_token)
         }).catch(error => {
             console.log(error);

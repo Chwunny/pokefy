@@ -27,7 +27,7 @@ const NewArtist = (props) => {
                 headers: { 'Authorization' : 'Bearer ' + props.token}
             }).then(res => {
                 setData(res.data.artists.items)
-                console.log(res.data.artists.items);
+                // console.log(res.data.artists.items);
             })
         }
     }
@@ -41,14 +41,14 @@ const NewArtist = (props) => {
             headers: { 'Authorization' : 'Bearer ' + props.token}
         }).then(res => {
             setAlbumRes(res.data.items)
-            console.log(res.data.items);
+            // console.log(res.data.items);
         })
     }
 
     const handleAlbum1Change = (e) => {
         let val = e.target.value.split(",")
-        console.log(val[0]);
-        console.log(val[1]);
+        // console.log(val[0]);
+        // console.log(val[1]);
 
         setAlbum1({ name: val[0], id: val[1]})
         
@@ -62,15 +62,15 @@ const NewArtist = (props) => {
                 }
                 
             })
-            console.log(res.data.items);
+            // console.log(res.data.items);
         })
         
     }
 
     const handleAlbum2Change = (e) => {
         let val = e.target.value.split(",")
-        console.log(val[0]);
-        console.log(val[1]);
+        // console.log(val[0]);
+        // console.log(val[1]);
 
         setAlbum2({ name: val[0], id: val[1]})
         
@@ -84,7 +84,7 @@ const NewArtist = (props) => {
                 }
                 
             })
-            console.log(res.data.items);
+            // console.log(res.data.items);
         })
         
     }
@@ -94,16 +94,23 @@ const NewArtist = (props) => {
     }
 
 
-    const create = () => {
-        props.newCard([
-            selected,
-            album1,
-            album1Tracks,
-            album2,
-            album2Tracks,
-            type
-        ])
+    const create = async () => {
+        // console.log(album1Tracks);
+        // console.log(album2Tracks);
+        await axios.post('/user/create/artist', {
+            name: selected.name,
+            artist_id: selected.id,
+            genre: selected.genre,
+            popularity: selected.popularity,
+            followers: selected.followers,
+            album_1: album1,
+            alb1_tracks: album1Tracks.join(", "),
+            album_2: album2,
+            alb2_tracks: album2Tracks.join(", "),
+            card_type: type
+        }).then(res => console.log(res.data))
 
+        props.updateData()
         props.cancel()
         
     }

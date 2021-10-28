@@ -12,7 +12,7 @@ CREATE TABLE artist_card (
     user_id INT NOT NULL REFERENCES users(id),
     name VARCHAR(100),
     genre VARCHAR(100),
-    species VARCHAR(100),
+    card_type VARCHAR(100),
     album_1 VARCHAR(100),
     ab1_tracks TEXT,
     album_2 VARCHAR(100),
