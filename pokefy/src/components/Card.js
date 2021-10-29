@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 
@@ -120,6 +120,20 @@ const Card = (props) => {
       props.updateData()
     })
   }
+
+  useEffect(() => {
+    if (image === null){
+      console.log('card ' + cardId + ' image value is null');
+      axios(`https://api.spotify.com/v1/search?q=${name}&type=artist&offset=0&limit=1`, {
+        method: 'GET',
+        headers: { 'Authorization' : 'Bearer ' + props.token}
+    }).then(res => {
+      axios.put('/user/image/card', {cardId: cardId, image_url: res.data.artists.items[0].images[1].url}).then(res => {
+        props.updateData()
+      })
+    })
+    }
+  })
 
   return (
     <div className={type} id="card">

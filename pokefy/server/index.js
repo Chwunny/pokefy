@@ -32,6 +32,7 @@ app.post('/user/cards', card.getCards)
 app.post('/user/create/artist', card.createCard)
 app.delete('/user/delete/card', card.deleteCard)
 app.put('/user/favorite/card', card.favoriteCard)
+app.put('/user/image/card', card.addImgToCard)
 
 massive({
     connectionString: CONNECTION_STRING,

@@ -42,5 +42,14 @@ module.exports = {
 
         await db.favorite_card([cardId])
         res.status(200).send('Card updated successfully')
+    },
+    addImgToCard: async (req, res) => {
+        const db = req.app.get('db')
+
+        const { cardId, image_url } = req.body
+        console.log(req.body);
+
+        await db.add_card_image([image_url, cardId])
+        res.status(200).send('Card image updated')
     }
 }
