@@ -6,7 +6,7 @@ import Header from './Header'
 import NewArtist from './NewArtist'
 import NewAlbum from './NewAlbum'
 import Card from './Card'
-
+import plusIcon from '../photos/plus.png'
 
 const Dashboard = (props) => {
     const [guiIndex, setGuiIndex] = useState(0)
@@ -64,14 +64,14 @@ const Dashboard = (props) => {
                 { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
                 { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus}/>}
 
-                <div className="cardContainer border">
+                <div className="cardContainer ">
                     <div className="grid-item1" onClick={() => setGuiIndex(1)}>
-                        
+                        <img className="plusIcon" src={plusIcon} alt="Add a new card" />
                     </div>
 
                     {cardData.map((el, idx) => {
                         return <Card 
-                        key={idx} cardId={el.id} name={el.name} artistId={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
+                        key={idx} cardId={el.id} name={el.name} image={el.image_url} artistId={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
                         alb1={el.album_1}
                         alb1Tracks={el.alb1_tracks}
                         alb2={el.album_2}

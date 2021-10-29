@@ -32,7 +32,7 @@ const Register = (props) => {
         <div className="containerItem2 formParent">
           <form className="form">
             <input
-              type="text"
+              type="email"
               className="input"
               value={email}
               placeholder="   Email"

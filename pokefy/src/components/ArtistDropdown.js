@@ -2,6 +2,7 @@ import React from "react";
 
 const ArtistDropdown = (props) => {
   const { handleChange, data } = props;
+  console.log(data);
 
 
   return (
@@ -17,6 +18,7 @@ const ArtistDropdown = (props) => {
               [item.popularity],
               [item.followers.total],
               [item.genres[0]],
+              [item.images[0].url]
             ]}
           >
             {item.name}

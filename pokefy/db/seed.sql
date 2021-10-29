@@ -11,13 +11,15 @@ CREATE TABLE artist_card (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL REFERENCES users(id),
     name VARCHAR(100),
+    image_url TEXT,
+    artist_id VARCHAR(100),
     genre VARCHAR(100),
     card_type VARCHAR(100),
     album_1 VARCHAR(100),
-    ab1_tracks TEXT,
+    alb1_tracks TEXT,
     album_2 VARCHAR(100),
-    ab2_tracks TEXT,
-    poularity INT,
+    alb2_tracks TEXT,
+    popularity INT,
     followers INT,
     favorite BOOLEAN
 );

@@ -34,8 +34,7 @@ const NewArtist = (props) => {
 
     const handleChange = async (e) => {
         let val = e.target.value.split(",")
-        setSelected({ name: val[0], id: val[1], popularity: val[2], followers: val[3], genre: val[4] })
-   
+        setSelected({ name: val[0], id: val[1], popularity: val[2], followers: val[3], genre: val[4], images: val[5] })
         axios(`https://api.spotify.com/v1/artists/${val[1]}/albums`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + props.token}
@@ -99,6 +98,7 @@ const NewArtist = (props) => {
         // console.log(album2Tracks);
         await axios.post('/user/create/artist', {
             name: selected.name,
+            image: selected.images,
             artist_id: selected.id,
             genre: selected.genre,
             popularity: selected.popularity,

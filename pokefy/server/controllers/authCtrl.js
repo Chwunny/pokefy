@@ -20,7 +20,7 @@ module.exports = {
 
         const [newUser] = await db.register_user([email, username, hash])
 
-        res.status(200).send(newUser)
+        res.status(200).send('Success')
     },
     attemptLogin: async (req, res) => {
         const db = req.app.get('db')

@@ -30,16 +30,18 @@
 
 .grid-item1 {
   border: dashed black 0.32vw;
-  background-color: grey;
+  background-color: #CCCCCC;
   height: 39.75vh;
   border-radius: 3%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  opacity: 65%;
 }
 
-.grid-item {
-  height: 41vh;
-  background-image: url("../photos/PokéfyCardProto.png");
-  background-size: cover;
+.plusIcon {
+  height: 100%;
+  width: auto;
+  max-height: 25%;
 }

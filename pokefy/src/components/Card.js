@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from "react";
+import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 
@@ -32,10 +32,9 @@ import favHeart from "../photos/heart-svgrepo-com.svg"
 
 
 const Card = (props) => {
-  const [img, setImg] = useState("") 
 
   const {
-    name, cardId, artistId, pop, foll, gen,
+    name, image, cardId, artistId, pop, foll, gen,
     alb1,
     alb1Tracks,
     alb2,
@@ -105,15 +104,6 @@ const Card = (props) => {
       alt = "Normal type icon"
       break;
   }
-  
-  useEffect(() => {
-    axios(`https://api.spotify.com/v1/search?q=${name}&type=artist&offset=0&limit=1`, {
-            method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + props.token}
-        }).then(res => {
-            setImg(res.data.artists.items[0].images[1].url);
-        })  
-  }, [name, props.token])
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -152,7 +142,7 @@ const Card = (props) => {
       </div>
       <div className="cardComponent2 ">
         <img
-          src={img}
+          src={image}
           alt="Artist"
         />
       </div>
