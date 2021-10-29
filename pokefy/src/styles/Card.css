@@ -7,6 +7,7 @@ img {
   max-height: 100%;
 }
 
+
 #card {
   border: solid #e7c200 0.32vw;
   height: 39.75vh;
@@ -230,7 +231,8 @@ img {
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  margin-top: 1vh;
+  margin-top: 2%;
+  margin-bottom: 3%;
 }
 
 .statsBox {
@@ -247,19 +249,36 @@ img {
   font-size: 0.45vw;
 }
 
-.picContainer {
+.picContainer1 {
   display: flex;
   justify-content: space-between;
   height: auto;
+  width: 100%;
 }
 
 .pic {
   height: 1.5vh;
 }
 
+.picContainer2 {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  max-height: 80%;
+  /* border: solid white 1px; */
+}
+
+.delete{
+  max-height: 2vw;
+  max-width: 2vh;
+  margin-right: 20%;
+  cursor: pointer;
+}
+
 .heart {
   height: 2vh;
   max-height: 100%;
+  cursor: pointer;
 }
 
 .ghost {

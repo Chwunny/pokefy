@@ -71,12 +71,14 @@ const Dashboard = (props) => {
 
                     {cardData.map((el, idx) => {
                         return <Card 
-                        key={idx} name={el.name} id={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
+                        key={idx} cardId={el.id} name={el.name} artistId={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
                         alb1={el.album_1}
                         alb1Tracks={el.alb1_tracks}
                         alb2={el.album_2}
                         alb2Tracks={el.alb2_tracks}
                         type={el.card_type}
+                        fav={el.favorite}
+                        updateData={handleCount}
                         />
                     })}
 

@@ -10,6 +10,7 @@ module.exports = {
         const {userId, username} = req.session // Gonna set username to redux store later
 
         const cards = await db.get_cards_by_username([userId])
+        // console.log(cards)
 
         res.status(200).send(cards)
     },
@@ -21,8 +22,25 @@ module.exports = {
 
         const newCard = await db.create_new_card([userId, name, artist_id, genre, card_type.type, album_1.name, alb1_tracks, album_2.name, alb2_tracks, popularity, followers, false])
 
-        console.log(newCard);
+        // console.log(newCard);
 
         res.status(200).send('Success')
+    },
+    deleteCard: async (req, res) => {
+        const db = req.app.get('db')
+
+        const { cardId } = req.body
+
+        await db.delete_artist_card([cardId])
+        
+        res.status(200).send('Card deleted successfully')
+    },
+    favoriteCard: async (req, res) => {
+        const db = req.app.get('db')
+
+        const { cardId } = req.body
+
+        await db.favorite_card([cardId])
+        res.status(200).send('Card updated successfully')
     }
 }

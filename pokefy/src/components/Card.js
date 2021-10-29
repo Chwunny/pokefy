@@ -2,6 +2,7 @@ import React, {useState, useEffect}from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 
+import deleteBtn from '../photos/delete-svgrepo-com.svg'
 
 import "../styles/Card.css";
 import ghost from "../photos/120px-Ghost_icon_SwSh.png";
@@ -27,18 +28,20 @@ import grassType from "../photos/120px-GrassIC.png"
 import fightingType from "../photos/120px-FightingIC.png"
 
 import heart from "../photos/akar-icons_heart.png";
+import favHeart from "../photos/heart-svgrepo-com.svg"
 
 
 const Card = (props) => {
   const [img, setImg] = useState("") 
 
   const {
-    name, id, pop, foll, gen,
+    name, cardId, artistId, pop, foll, gen,
     alb1,
     alb1Tracks,
     alb2,
     alb2Tracks,
-    type
+    type,
+    fav
   } = props
 
   let img1;
@@ -116,6 +119,18 @@ const Card = (props) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  const deleteCard = async () => {
+    await axios.delete('/user/delete/card', { data: {cardId: cardId} }).then(res => {
+      props.updateData()
+    })
+  }
+
+  const updateFavorite = async () => {
+    await axios.put('/user/favorite/card', {cardId: cardId}).then(res => {
+      props.updateData()
+    })
+  }
+
   return (
     <div className={type} id="card">
       <div className="cardComponent1 ">
@@ -175,13 +190,21 @@ const Card = (props) => {
             <p className="stats">Followers {numberWithCommas(foll)}</p>
           </div>
         </div>
-        <div className="picContainer ">
+        <div className="picContainer1 ">
           <div className="pic">
             <img src={img2} alt={alt} />
           </div>
-          <div className="heart ">
-            <img src={heart} alt="heart" />
+          
+          <div className="picContainer2">
+            <div className="delete" onClick={deleteCard}>
+              <img src={deleteBtn} alt="Delete" />
+            </div>
+            
+            <div className="heart " onClick={updateFavorite}>
+              {fav ? <img src={favHeart} alt="heart" /> : <img src={heart} alt="heart"/>}
+            </div>
           </div>
+
         </div>
       </div>
     </div>
