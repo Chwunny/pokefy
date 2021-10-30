@@ -27,6 +27,8 @@ app.get('*', (req, res) => {
 app.post('/auth/user', auth.attemptLogin)
 app.post('/auth/register', auth.register)
 app.post('/auth/token', auth.getToken)
+app.post('/auth/session', auth.getSession)
+app.get('/auth/logout', auth.logout)
 
 app.post('/user/cards', card.getCards)
 app.post('/user/create/artist', card.createCard)

@@ -55,5 +55,16 @@ module.exports = {
         }).catch(error => {
             console.log(error);
         })
+    },
+    getSession: async (req, res) => {
+        if (req.session) {
+            res.status(200).send(req.session)
+        } else {
+            res.status(400).send('No session found')
+        }
+    },
+    logout: async (req, res) => {
+        req.session.destroy()
+        res.status(200).send('Session destroyed')
     }
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/Login.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
@@ -8,6 +8,16 @@ const Login = (props) => {
     const [password, setPassword] = useState("")
 
 
+    // useEffect(() => {
+    //     axios.post('/auth/session').then(res => {
+    //         // props.dispatch({ type: 'LOG_STATUS', payload: res.data})
+    //         console.log(res.data);
+    //         axios.get('/auth/token').then(res => {
+    //             props.dispatch({ type: "SET_TOKEN", payload: res.data})
+    //         })
+    //         props.history.push("/")
+    //     })
+    // })
     
     const handlerFunction = (e) => {
         e.preventDefault()
