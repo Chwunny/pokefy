@@ -5,17 +5,22 @@ import '../styles/Dashboard.css'
 import Header from './Header'
 import NewArtist from './NewArtist'
 import NewAlbum from './NewAlbum'
-import Card from './Card'
+import ArtistCard from './ArtistCard'
 import plusIcon from '../photos/plus.png'
+import AlbumCard from './AlbumCard'
 
 const Dashboard = (props) => {
     const [guiIndex, setGuiIndex] = useState(0)
     const [count, setCount] = useState(0)
-    const [cardData, setCardData] = useState([])
-
+    const [ArtistCardData, setArtistCardData] = useState([])
+    const [albumCardData, setAlbumCardData] = useState([])
+ 
     useEffect(() => {
-        axios.post('/user/cards').then(res => {
-            setCardData(res.data)
+        axios.post('/user/artist/cards').then(res => {
+            setArtistCardData(res.data.reverse())
+        })
+        axios.post('/user/album/cards').then(res => {
+            setAlbumCardData(res.data.reverse())
         })
     },[count])
 
@@ -62,20 +67,31 @@ const Dashboard = (props) => {
             <div className="dashboard">
                 
                 { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
-                { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus}/>}
+                { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
 
                 <div className="cardContainer ">
                     <div className="grid-item1" onClick={() => setGuiIndex(1)}>
                         <img className="plusIcon" src={plusIcon} alt="Add a new card" />
                     </div>
 
-                    {cardData.map((el, idx) => {
-                        return <Card 
+                    {ArtistCardData.map((el, idx) => {
+                        return <ArtistCard 
                         key={idx} cardId={el.id} name={el.name} image={el.image_url} artistId={el.artist_id} pop={el.popularity} foll={el.followers} gen={el.genre}
                         alb1={el.album_1}
                         alb1Tracks={el.alb1_tracks}
                         alb2={el.album_2}
                         alb2Tracks={el.alb2_tracks}
+                        type={el.card_type}
+                        fav={el.favorite}
+                        updateData={handleCount}
+                        />
+                    })}
+
+                    {albumCardData.map((el, idx) => {
+                        return <AlbumCard 
+                        key={idx} cardId={el.id} artistName={el.artist_name} image={el.image_url} genre={el.genre} pop={el.popularity} releaseDate={el.release_date}
+                        albumName={el.album_name}
+                        albumTracks={el.alb_tracks}
                         type={el.card_type}
                         fav={el.favorite}
                         updateData={handleCount}

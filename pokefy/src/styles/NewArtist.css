@@ -63,15 +63,21 @@ height: 80%;
 
 
 .guiInput{
+    min-width: 90%;
     width: 90%;
     background-color: #C4C4C4;
     height: 2vh;
-    font-size: .8vw;
+    font-size: max(100%);
     font-weight: bold;
     color: #FFF;
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    text-align-last: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .guiInput::placeholder{

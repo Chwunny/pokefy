@@ -117,7 +117,7 @@ const NewArtist = (props) => {
 
 
     return (
-        <div>
+        <>
             <div className="cardGui ">
                     <div className="guiItem1">
                         <h3>Create a new Artist card</h3>
@@ -159,7 +159,7 @@ const NewArtist = (props) => {
                         </button>
                     </div>
                 </div>
-        </div>
+        </>
     )
 }
 

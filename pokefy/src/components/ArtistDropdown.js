@@ -4,9 +4,9 @@ const ArtistDropdown = (props) => {
   const { handleChange, data } = props;
 
   return (
-    <div>
+    <>
       <select className="guiInput" onChange={(e) => handleChange(e)}>
-        <option className="guiInput" >Select an Artist</option>
+        <option >Select an Artist</option>
         {data.map((item, index) => (
           <option className="guiInput"
             key={index}
@@ -22,7 +22,7 @@ const ArtistDropdown = (props) => {
           </option>
         ))}
       </select>
-    </div>
+    </>
   );
 };
 

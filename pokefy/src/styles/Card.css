@@ -7,7 +7,6 @@ img {
   max-height: 100%;
 }
 
-
 #card {
   border: solid #e7c200 0.32vw;
   height: 39.75vh;
@@ -110,16 +109,38 @@ img {
   overflow: auto;
 }
 
-.cardComponent3::-webkit-scrollbar {
-  width: .3vw;
+.albumCardComponent4 p {
+  font-size: 0.5vw;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 }
 
-.cardComponent3::-webkit-scrollbar-thumb{
+.albumCardComponent4 {
+  margin-top: 5%;
+  width: 90%;
+  height: 25%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.albumCardComponent4::-webkit-scrollbar {
+  width: 0.3vw;
+}
+
+.albumCardComponent4::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 15%;
 }
 
+.cardComponent3::-webkit-scrollbar {
+  width: 0.3vw;
+}
 
+.cardComponent3::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 15%;
+}
 
 .imgContainer {
   height: 70%;
@@ -132,13 +153,13 @@ img {
 
 .cardComponent3 h1 {
   color: white;
-  font-size: clamp(.4vw, .6vw, 100%);
+  font-size: clamp(0.4vw, 0.6vw, 100%);
   font-weight: bold;
   max-width: 75%;
 }
 
 .cardComponent4 p {
-  font-size: .5vw;
+  font-size: 0.5vw;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -153,15 +174,13 @@ img {
 }
 
 .cardComponent4::-webkit-scrollbar {
-  width: .3vw;
+  width: 0.3vw;
 }
 
-.cardComponent4::-webkit-scrollbar-thumb{
+.cardComponent4::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 15%;
 }
-
-
 
 .cardComponent5 {
   margin-top: 2%;
@@ -173,17 +192,17 @@ img {
 }
 
 .cardComponent5::-webkit-scrollbar {
-  width: .3vw;
+  width: 0.3vw;
 }
 
-.cardComponent5::-webkit-scrollbar-thumb{
+.cardComponent5::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 15%;
 }
 
 .cardComponent5 h1 {
   color: white;
-  font-size: clamp(.4vw, .6vw, 100%);
+  font-size: clamp(0.4vw, 0.6vw, 100%);
   font-weight: bold;
   max-width: 75%;
 }
@@ -197,16 +216,16 @@ img {
 }
 
 .cardComponent6::-webkit-scrollbar {
-  width: .3vw;
+  width: 0.3vw;
 }
 
-.cardComponent6::-webkit-scrollbar-thumb{
+.cardComponent6::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 15%;
 }
 
 .cardComponent6 p {
-  font-size: .5vw;
+  font-size: 0.5vw;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -268,7 +287,7 @@ img {
   /* border: solid white 1px; */
 }
 
-.delete{
+.delete {
   max-height: 2vw;
   max-width: 2vh;
   margin-right: 20%;
@@ -396,7 +415,7 @@ img {
 
 .fighting {
   background: linear-gradient(
-    180deg,
+    332.92deg,
     #f21e1e 0%,
     #000000 99.99%,
     rgba(255, 255, 255, 0) 100%

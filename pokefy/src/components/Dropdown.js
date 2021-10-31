@@ -5,13 +5,13 @@ const Dropdown = (props) => {
 
     
     return (
-        <div>
+        <>
             <select className="guiInput" onChange={(e) => handleChange(e)}>
-                <option className="guiInput" value="">Select album {number}</option>
+                <option value="">Select album {number}</option>
                 {data.map((item, index) => <option key={index} value={[ item.name, item.id ]} >{item.name}</option>)}
             </select>
         
-        </div>
+        </>
     )
 }
 

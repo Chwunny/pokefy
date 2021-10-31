@@ -110,13 +110,13 @@ const Card = (props) => {
   }
 
   const deleteCard = async () => {
-    await axios.delete('/user/delete/card', { data: {cardId: cardId} }).then(res => {
+    await axios.delete('/user/delete/artist/card', { data: {cardId: cardId} }).then(res => {
       props.updateData()
     })
   }
 
   const updateFavorite = async () => {
-    await axios.put('/user/favorite/card', {cardId: cardId}).then(res => {
+    await axios.put('/user/favorite/artist/card', {cardId: cardId}).then(res => {
       props.updateData()
     })
   }

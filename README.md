@@ -12,7 +12,6 @@ Create an application where users can create an account and create Pokémon card
 
 ## **Future features**:
 - Users can create and sort playlists based on their pokémon cards
-- Users can sort their pokémon cards into lists and
 - Users can drag their pokémon cards around the page/sort them
 
 

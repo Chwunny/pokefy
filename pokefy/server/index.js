@@ -30,10 +30,14 @@ app.post('/auth/token', auth.getToken)
 app.post('/auth/session', auth.getSession)
 app.get('/auth/logout', auth.logout)
 
-app.post('/user/cards', card.getCards)
-app.post('/user/create/artist', card.createCard)
-app.delete('/user/delete/card', card.deleteCard)
-app.put('/user/favorite/card', card.favoriteCard)
+app.post('/user/artist/cards', card.getArtistCards)
+app.post('/user/album/cards', card.getAlbumCards)
+app.post('/user/create/artist', card.createArtistCard)
+app.post('/user/create/album', card.createAlbumCard) 
+app.delete('/user/delete/artist/card', card.deleteArtistCard)
+app.put('/user/favorite/artist/card', card.favoriteArtistCard)
+app.delete('/user/delete/album/card', card.deleteAlbumCard)
+app.put('/user/favorite/album/card', card.favoriteAlbumCard)
 app.put('/user/image/card', card.addImgToCard)
 
 massive({

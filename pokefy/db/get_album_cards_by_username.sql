@@ -1,0 +1,1 @@
+SELECT * FROM album_card WHERE user_id = $1

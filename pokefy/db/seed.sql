@@ -27,12 +27,15 @@ CREATE TABLE artist_card (
 CREATE TABLE album_card (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL REFERENCES users(id),
-    name VARCHAR(100),
+    artist_name VARCHAR(100),
+    artist_id VARCHAR(100),
+    image_url TEXT,
     genre VARCHAR(100),
-    species VARCHAR(100),
-    album_1 VARCHAR(100),
-    ab1_tracks TEXT,
-    poularity INT,
-    followers INT,
+    card_type VARCHAR(100),
+    album_name VARCHAR(100),
+    alb_tracks TEXT,
+    popularity INT,
+    release_date VARCHAR(15),
     favorite BOOLEAN
 );
+

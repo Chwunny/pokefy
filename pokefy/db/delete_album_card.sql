@@ -1,0 +1,1 @@
+DELETE FROM album_card WHERE id = $1
