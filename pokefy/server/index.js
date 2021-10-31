@@ -24,21 +24,25 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build', 'index.html'))
 })
 
-app.post('/auth/user', auth.attemptLogin)
 app.post('/auth/register', auth.register)
+app.post('/auth/user', auth.attemptLogin)
 app.post('/auth/token', auth.getToken)
+
 app.post('/auth/session', auth.getSession)
 app.get('/auth/logout', auth.logout)
 
 app.post('/user/artist/cards', card.getArtistCards)
 app.post('/user/album/cards', card.getAlbumCards)
+
 app.post('/user/create/artist', card.createArtistCard)
 app.post('/user/create/album', card.createAlbumCard) 
+
 app.delete('/user/delete/artist/card', card.deleteArtistCard)
-app.put('/user/favorite/artist/card', card.favoriteArtistCard)
 app.delete('/user/delete/album/card', card.deleteAlbumCard)
-app.put('/user/favorite/album/card', card.favoriteAlbumCard)
+
+app.put('/user/favorite/artist/card', card.favoriteArtistCard)
 app.put('/user/image/card', card.addImgToCard)
+app.put('/user/favorite/album/card', card.favoriteAlbumCard)
 
 massive({
     connectionString: CONNECTION_STRING,
