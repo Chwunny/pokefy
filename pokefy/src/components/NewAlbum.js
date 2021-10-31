@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import AlbumDropdown from "../components/AlbumDropdown";
-import Dropdown from "../components/Dropdown";
 
 const NewAlbum = (props) => {
   let lArrow = "\u003C";
@@ -14,7 +13,6 @@ const NewAlbum = (props) => {
   const [type, setType] = useState("");
 
   const search = (val) => {
-    // console.log(val);
     if (val.length > 2) {
       axios(
         `https://api.spotify.com/v1/search?q=${val}&type=album&offset=0&limit=10`,
@@ -24,15 +22,13 @@ const NewAlbum = (props) => {
         }
       ).then((res) => {
         setData(res.data.albums.items);
-        // console.log(res.data.artists.items);
       });
     }
   };
 
   const handleChange = async (e) => {
     let val = e.target.value.split(",");
-    // setSelected({ name: val[0], id: val[1], images: val[2] })
-    axios(`https://api.spotify.com/v1/albums/${val[1]}/`, {
+    axios(`https://api.spotify.com/v1/albums/${val[1]}/`, { // val[1] is the album id received from the dropdown
       method: "GET",
       headers: { Authorization: "Bearer " + props.token },
     }).then((res) => {
@@ -63,7 +59,6 @@ const NewAlbum = (props) => {
           releaseDate: release_date,
         });
         tracks.items.forEach((el, idx) => {
-            // console.log(el.name);
             if (idx <= 15){
                 setAlbTracks(trackData => [...trackData, el.name])
             }
