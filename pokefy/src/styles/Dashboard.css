@@ -37,7 +37,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  opacity: 65%;
+  background: transparent;
 }
 
 .plusIcon {

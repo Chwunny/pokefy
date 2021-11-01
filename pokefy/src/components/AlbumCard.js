@@ -46,8 +46,6 @@ const AlbumCard = (props) => {
     fav
   } = props
 
-  console.log(type);
-
   let img1;
   let img2;
   let alt;
@@ -159,12 +157,6 @@ const AlbumCard = (props) => {
           {albumTracks}
         </p>
       </div>
-      {/* <div className="cardComponent5 ">
-
-      </div>
-      <div className="cardComponent6 ">
-
-      </div> */}
       <div className="cardComponent7 "></div>
       <div className="cardComponent8 ">
         <div className="statsContainer">
