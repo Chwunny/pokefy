@@ -27,6 +27,7 @@ app.get('*', (req, res) => {
 app.post('/auth/register', auth.register)
 app.post('/auth/user', auth.attemptLogin)
 app.post('/auth/token', auth.getToken)
+app.post('/auth/username', auth.getUsername)
 
 app.post('/auth/session', auth.getSession)
 app.get('/auth/logout', auth.logout)

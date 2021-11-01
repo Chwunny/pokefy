@@ -59,11 +59,10 @@ const Dashboard = (props) => {
     const cancel = () => {
         setGuiIndex(0)
     }
-
     
     return(
         <div>
-            <Header name={'Dashboard'}/>
+            <Header name={'Dashboard'} history={props.history}/>
             <div className="dashboard">
                 
                 { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}

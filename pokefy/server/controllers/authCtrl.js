@@ -66,5 +66,11 @@ module.exports = {
     logout: async (req, res) => {
         req.session.destroy()
         res.status(200).send('Session destroyed')
+    },
+    getUsername: async (req, res) => {
+        const {username} = req.session
+        if (username.length > 0){
+            res.status(200).send(username)
+        }
     }
 }

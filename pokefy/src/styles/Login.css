@@ -1,3 +1,6 @@
+* {
+    font-family: 'Poppins', 'sans-serif';
+}
 .login {
     display: flex;
     justify-content: center;
@@ -67,6 +70,7 @@
 }
 
 .buttonContainerDiv {
+    min-width: 5vw;
     width: auto;
     display: flex;
     flex-direction: column;

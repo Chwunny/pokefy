@@ -4,3 +4,8 @@
   height: 100vh;
 }
 
+.app {
+  background: linear-gradient(237.67deg, rgba(60, 3, 224, 0.2) 0%, rgba(60, 3, 224, 0.092) 69.38%), linear-gradient(116.39deg, #008C49 0%, rgba(3, 15, 11, 0.87) 75.78%);
+  height: 90vh;
+  text-align: center;
+}
