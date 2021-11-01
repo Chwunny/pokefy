@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import '../styles/Header.css'
 
 const Header = (props) => {
     const logout = () => {
-        // console.log('attempting to logout');
         axios.get('/auth/logout').then(res => {
             props.dispatch({ type: "LOG_STATUS", payload: false})
             props.history.push("/")
