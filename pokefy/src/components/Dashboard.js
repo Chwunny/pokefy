@@ -14,14 +14,20 @@ const Dashboard = (props) => {
     const [count, setCount] = useState(0)
     const [ArtistCardData, setArtistCardData] = useState([])
     const [albumCardData, setAlbumCardData] = useState([])
+    const [loading, setLoading] = useState(true)
  
     useEffect(() => {
-        axios.post('/user/artist/cards').then(res => {
-            setArtistCardData(res.data.reverse())
-        })
-        axios.post('/user/album/cards').then(res => {
-            setAlbumCardData(res.data.reverse())
-        })
+        (async function getCardData(){
+            await axios.post('/user/artist/cards').then(res => {
+                setArtistCardData(res.data.reverse())
+            })
+            await axios.post('/user/album/cards').then(res => {
+                setAlbumCardData(res.data.reverse())
+            })
+            setTimeout(() => {
+                setLoading(false)
+            }, 750)
+        })()
     },[count])
 
     const handleCount = () => {
@@ -60,6 +66,17 @@ const Dashboard = (props) => {
         setGuiIndex(0)
     }
     
+    if (loading){
+        return(
+            <div className="App loadingScreen">
+                <div className="loadingContainer">
+                    <h1>Loading</h1>
+                    <div className="dot-falling"></div>
+                </div>
+                
+            </div>
+        )
+    } else {
     return(
         <div>
             <Header name={'Dashboard'} history={props.history}/>
@@ -102,6 +119,7 @@ const Dashboard = (props) => {
             </div>
         </div>
     )
+                }
 }
 function mapStateToProps(state){
     return {...state.token}
