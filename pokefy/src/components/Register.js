@@ -5,22 +5,31 @@ import axios from "axios";
 const Register = (props) => {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [passwordOne, setPasswordOne] = useState("");
+  const [passwordTwo, setPasswordTwo] = useState("");
   const [resMsg, setResMsg] = useState("")
 
   const handleRegister = () => {
-    if (username.length && password.length && email.length){
-        axios.post('/auth/register', {username, password, email}).then(res => {
+    if (passwordOne !== passwordTwo){
+      setResMsg('Passwords must match')
+      return
+    }
+    if (username.length && passwordOne.length && email.length ){
+        axios.post('/auth/register', {username, passwordOne, email}).then(res => {
             setResMsg("Account created succesfully!")
+            return
         }).catch(err => {
             setResMsg("User already exists!")
+            return
         })
     } else {
         setResMsg("Please fill out every field!")
+        return
     }
-
-    
   }
+
+  const passwordsMatch = passwordOne === passwordTwo // This is a true or false value that dictates what the class will be for password input 2
+
   return (
     <div className="App register">
       <h1 className="loginH1">Pokéfy</h1>
@@ -33,24 +42,31 @@ const Register = (props) => {
           <form className="form">
             <input
               type="email"
-              className="input"
+              className="register-input"
               value={email}
               placeholder="   Email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
-              className="input"
+              className="register-input"
               value={username}
               placeholder="   Username"
               onChange={(e) => setUsername(e.target.value)}
             />
             <input
               type="password"
-              className="input"
-              value={password}
+              className="register-input"
+              value={passwordOne}
               placeholder="   Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPasswordOne(e.target.value)}
+            />
+            <input
+              type="password"
+              className={passwordsMatch ? 'register-input' : 'wrongPassword register-input'}
+              value={passwordTwo}
+              placeholder="   Confirm Password"
+              onChange={(e) => setPasswordTwo(e.target.value)}
             />
             <button style={{ display: "none" }}></button>
           </form>

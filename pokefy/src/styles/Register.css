@@ -5,15 +5,26 @@
     flex-direction: column;
 }
 .containerItem1 {
-    height: 25%;
+    height: 20%;
 }
 .containerItem2 {
-    height: 50%;
+    height: 60%;
 }
 
 .containerItem3 {
-    height: 25%;
+    height: 15%;
     width: 50%;
+}
+
+.register-input {
+    width: auto;
+    margin-top: 8%;
+    background-color: #C4C4C4;
+    height: 2.8vh;
+    font-size: 2vw;
+    color: #8e8e8e;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .inptBtnR1 {
@@ -40,4 +51,9 @@
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: .65vw;
+}
+
+.wrongPassword {
+    border: solid red 2px;
+   /* border-color: crimson; */
 }

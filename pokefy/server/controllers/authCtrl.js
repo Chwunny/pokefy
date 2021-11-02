@@ -8,7 +8,7 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
 
-        const { username, password, email } = req.body
+        const { username, passwordOne, email } = req.body
 
         const [existingUser] = await db.get_user_by_username([username])
         if (existingUser) {
@@ -16,7 +16,7 @@ module.exports = {
         }
 
         const salt = bcrypt.genSaltSync(10)
-        const hash = bcrypt.hashSync(password, salt)
+        const hash = bcrypt.hashSync(passwordOne, salt)
 
         const [newUser] = await db.register_user([email, username, hash])
 
