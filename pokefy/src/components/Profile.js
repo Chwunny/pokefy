@@ -34,6 +34,7 @@ const Profile = (props) => {
                 <div className="guiContainer3">
                     <button className="profileBtn deleteAcct">Delete Account</button>
                     <button className="profileBtn save">Save</button>
+                    
                 </div>
             </div>
 

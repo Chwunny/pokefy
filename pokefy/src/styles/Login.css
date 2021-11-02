@@ -16,7 +16,7 @@
     flex-direction: column;
     border: solid #C4C4C4 .2vw;
     border-radius: 10px;
-
+    text-align: center;
 }
 
 .form {

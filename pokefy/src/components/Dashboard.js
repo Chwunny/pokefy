@@ -71,9 +71,10 @@ const Dashboard = (props) => {
             <div className="App loadingScreen">
                 <div className="loadingContainer">
                     <h1>Loading</h1>
-                    <div className="dot-falling"></div>
+                    <div className="dot-container">
+                        <div className="dot-falling"></div>
+                    </div>
                 </div>
-                
             </div>
         )
     } else {
