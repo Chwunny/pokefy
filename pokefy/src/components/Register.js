@@ -28,7 +28,7 @@ const Register = (props) => {
     }
   }
 
-  const passwordsMatch = passwordOne === passwordTwo // This is a true or false value that dictates what the class will be for password input 2
+  const passwordsMatch = passwordOne.length === passwordTwo.length // This is a true or false value that dictates what the class will be for password input 2
 
   return (
     <div className="App register">
