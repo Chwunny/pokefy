@@ -17,7 +17,6 @@ const Dashboard = (props) => {
     const [loading, setLoading] = useState(true)
  
     useEffect(() => {
-        // setLoading(true); 
         (async function getCardData(){
             await axios.post('/user/artist/cards').then(res => {
                 setArtistCardData(res.data.reverse())
