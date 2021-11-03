@@ -15,14 +15,28 @@ const Dashboard = (props) => {
     const [ArtistCardData, setArtistCardData] = useState([])
     const [albumCardData, setAlbumCardData] = useState([])
     const [loading, setLoading] = useState(true)
+
+    const nameInAplhabetical = (a, b) => {
+        
+        const nameA = a.name? a.name.toUpperCase() : a.artist_name.toUpperCase()
+        const nameB = b.name? b.name.toUpperCase() : b.artist_name.toUpperCase()
+    
+        let comparison = 0;
+      if (nameA > nameB) {
+        comparison = 1;
+      } else if (nameA < nameB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
  
     useEffect(() => {
         (async function getCardData(){
             await axios.post('/user/artist/cards').then(res => {
-                setArtistCardData(res.data.reverse())
+                setArtistCardData(res.data.sort(nameInAplhabetical))
             })
             await axios.post('/user/album/cards').then(res => {
-                setAlbumCardData(res.data.reverse())
+                setAlbumCardData(res.data.sort(nameInAplhabetical))
             })
             setTimeout(() => {
                 setLoading(false)
