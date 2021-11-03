@@ -83,7 +83,7 @@ const NewAlbum = (props) => {
     releaseDate: albumData.releaseDate,
     type: type.type
     }).then((res) => {
-      props.updateData()
+      props.createCardDelay()
       props.cancel()
     })
   };

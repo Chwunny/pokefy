@@ -17,6 +17,7 @@ const Dashboard = (props) => {
     const [loading, setLoading] = useState(true)
  
     useEffect(() => {
+        // setLoading(true); 
         (async function getCardData(){
             await axios.post('/user/artist/cards').then(res => {
                 setArtistCardData(res.data.reverse())
@@ -32,6 +33,11 @@ const Dashboard = (props) => {
 
     const handleCount = () => {
         setCount(count+1)
+    }
+
+    const createCardDelay = () => {
+        setCount(count+1)
+        setLoading(true)
     }
     
     const plus = () => {
@@ -83,8 +89,8 @@ const Dashboard = (props) => {
             <Header name={'Dashboard'} history={props.history}/>
             <div className="dashboard">
                 
-                { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
-                { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus} updateData={handleCount}/>}
+                { guiIndex === 1 && <NewArtist cancel={cancel} plus={plus} minus={minus} updateData={handleCount} createCardDelay={createCardDelay}/>}
+                { guiIndex === 2 && <NewAlbum cancel={cancel} plus={plus} minus={minus} updateData={handleCount} createCardDelay={createCardDelay}/>}
 
                 <div className="cardContainer ">
                     <div className="grid-item1" onClick={() => setGuiIndex(1)}>

@@ -110,7 +110,7 @@ const NewArtist = (props) => {
             card_type: type
         }).then(res => console.log(res.data))
 
-        props.updateData()
+        props.createCardDelay()
         props.cancel()
         
     }
