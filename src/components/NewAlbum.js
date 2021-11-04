@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import AlbumDropdown from "../components/AlbumDropdown";
+import AlbumDropdown from "./AlbumDropdown";
 
 const NewAlbum = (props) => {
   let lArrow = "\u003C";

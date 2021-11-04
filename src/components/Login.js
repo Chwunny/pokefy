@@ -8,16 +8,22 @@ const Login = (props) => {
     const [password, setPassword] = useState("")
 
 
-    // useEffect(() => {
-    //     axios.post('/auth/session').then(res => {
-    //         // props.dispatch({ type: 'LOG_STATUS', payload: res.data})
-    //         console.log(res.data);
-    //         axios.get('/auth/token').then(res => {
-    //             props.dispatch({ type: "SET_TOKEN", payload: res.data})
-    //         })
-    //         props.history.push("/")
-    //     })
-    // })
+    useEffect(() => {
+        axios.post('/auth/session').then(res => {
+            props.dispatch({ type: 'LOG_STATUS', payload: true})
+            if (!res.data.token){
+                // console.log('getting new token');
+                axios.get('/auth/token').then(token => {
+                    props.dispatch({ type: "SET_TOKEN", payload: token.data})
+                })
+            } else {
+                // console.log('setting existing token');
+                props.dispatch({ type: "SET_TOKEN", payload: res.data.token})
+            }
+            props.history.push("/")
+        })
+    }, [props.history, props])
+
     
     const handlerFunction = (e) => {
         e.preventDefault()

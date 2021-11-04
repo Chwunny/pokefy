@@ -5,7 +5,7 @@ import '../styles/Header.css'
 
 const Header = (props) => {
     const logout = () => {
-        axios.get('/auth/logout').then(res => {
+        axios.delete('/auth/logout').then(res => {
             props.dispatch({ type: "LOG_STATUS", payload: false})
             props.history.push("/")
         })

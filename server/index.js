@@ -30,7 +30,7 @@ app.post('/auth/token', auth.getToken)
 app.post('/auth/username', auth.getUsername)
 
 app.post('/auth/session', auth.getSession)
-app.get('/auth/logout', auth.logout)
+app.delete('/auth/logout', auth.logout)
 
 app.post('/user/artist/cards', card.getArtistCards)
 app.post('/user/album/cards', card.getAlbumCards)

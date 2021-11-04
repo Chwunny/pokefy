@@ -51,13 +51,14 @@ module.exports = {
             },
             data: 'grant_type=client_credentials'
         }).then(token => {
+            req.session.token = token.data.access_token
             res.status(200).send(token.data.access_token)
         }).catch(error => {
             console.log(error);
         })
     },
     getSession: async (req, res) => {
-        if (req.session) {
+        if (req.session.userId) {
             res.status(200).send(req.session)
         } else {
             res.status(400).send('No session found')
