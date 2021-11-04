@@ -50,11 +50,7 @@
     height: auto;
     max-height: 25%;
     width: auto;
-    /* border: none; */
-    /* border: solid black 1px; */
     border-radius: 5px;
-    font-size: 100%;
-    /* padding: 25px; */
     padding-left: 1vw;
     padding-right: 1vw;
 }
