@@ -18,7 +18,7 @@
 }
 
 .navItem1 {
-    width: 50%;
+    width: 30%;
     align-items: center;
     display: flex;
 }
@@ -42,4 +42,31 @@
     font-size: 2.5vh;
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .navItem1 {
+        display: none;
+    }
+
+    .navItem2 {
+        width: 100%;
+        justify-content: space-around;
+        margin-left: 0px;
+    }
+
+    .headerH2{
+        font-size: 2vh;
+        color: white;
+        cursor: pointer;
+    }
+
+    .nav {
+        height: 10vh;
+        background-color: #1c1c1c;
+        position: fixed;
+        width: 100vw;
+        display: flex;
+        /* justify-content: center; */
+    }
 }

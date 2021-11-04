@@ -99,6 +99,7 @@ const Dashboard = (props) => {
     } else {
     return(
         <div>
+            <nav className="mobile-placeholder"></nav>
             <Header name={'Dashboard'} history={props.history}/>
             <div className="dashboard">
                 

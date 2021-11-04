@@ -16,20 +16,27 @@ const Header = (props) => {
     }
 
     const sendToDashboard = () => {
-        props.history.push('/')
+        if (props.history.location.pathname === '/') {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        } else {
+            props.history.push('/')
+        }
     }
 
     return (
         <div>
-            <div className="spacer none"></div>
-            <nav className="nav">
-                <div className="navItem1">
-                    <h1 className="headerH1">{props.name}</h1>
+            <div className="spacer none  "></div>
+            <nav className="nav ">
+                <div className="navItem1 ">
+                    <h1 className="headerH1 ">{props.name}</h1>
                 </div>
-                <div className="navItem2">
-                    <h2 className="headerH2" onClick={sendToDashboard}>Dashboard</h2>
-                    <h2 className="headerH2" onClick={sendToProfile}>Profile</h2>
-                    <h2 className="headerH2" onClick={logout}>Logout</h2>
+                <div className="navItem2 ">
+                    <h2 className="headerH2 " onClick={sendToDashboard}>Dashboard</h2>
+                    <h2 className="headerH2 " onClick={sendToProfile}>Profile</h2>
+                    <h2 className="headerH2 " onClick={logout}>Logout</h2>
                 </div>
             </nav>
         </div>

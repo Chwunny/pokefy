@@ -86,13 +86,12 @@
 
 .inptBtn {
     background-color: #fff;
-    /* width: 80%; */
-    
+    min-width: 5vw;
     border-radius: 5px;
     height: auto;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    font-size: auto;
+    font-size: .65vw;
 }
 
 .forgot {
