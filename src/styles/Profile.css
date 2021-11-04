@@ -47,7 +47,8 @@
 }
 
 .profileBtn {
-    height: 20%;
+    height: auto;
+    max-height: 25%;
     width: auto;
     /* border: none; */
     /* border: solid black 1px; */

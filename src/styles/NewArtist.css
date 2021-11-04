@@ -56,18 +56,18 @@ height: 80%;
     align-items: center;
 }
 
-#type {
+/* #type {
     height: auto;
     font-size: auto;
-}
+} */
 
 
 .guiInput{
     min-width: 90%;
     width: 90%;
     background-color: #C4C4C4;
-    height: 2vh;
-    font-size: max(100%);
+    height: 2.8vh;
+    font-size: .8vw;
     font-weight: bold;
     color: #FFF;
     border-radius: 8px;
@@ -79,6 +79,8 @@ height: 80%;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .guiInput::placeholder{
     color: white;
@@ -125,3 +127,4 @@ height: 80%;
 .create{
     background-color: #fff;
 }
+

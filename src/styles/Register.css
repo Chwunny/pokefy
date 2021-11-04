@@ -21,7 +21,7 @@
     margin-top: 8%;
     background-color: #C4C4C4;
     height: 2.8vh;
-    font-size: 2vw;
+    font-size: max(1.5vw);
     color: #8e8e8e;
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
