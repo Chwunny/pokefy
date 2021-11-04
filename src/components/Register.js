@@ -17,6 +17,7 @@ const Register = (props) => {
     if (username.length && passwordOne.length && email.length ){
         axios.post('/auth/register', {username, passwordOne, email}).then(res => {
             setResMsg("Account created succesfully!")
+            props.history.push("/")
             return
         }).catch(err => {
             setResMsg("User already exists!")
