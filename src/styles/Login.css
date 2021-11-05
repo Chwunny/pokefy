@@ -51,6 +51,17 @@
     color: white;
 }
 
+.loginInput {
+    width: auto;
+    margin-top: 8%;
+    background-color: #C4C4C4;
+    height: 3vh;
+    font-size: 100%;
+    color: #000;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
 .input {
     width: auto;
     margin-top: 8%;
