@@ -128,3 +128,144 @@ height: 80%;
     background-color: #fff;
 }
 
+@media (max-width: 767px) {
+    .cardGui {  
+        height: 50vh;
+        width: 80vw;
+        margin-top: 25vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #1c1c1c;
+        border: solid #C4C4C4 .8vw;
+        border-radius: 5px;
+    }
+
+    .guiItem1 {
+        height: 10%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .guiItem1 h3 {
+        color: white;
+        font-size: 4vw;
+    }
+    
+    .middleBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    }
+    
+    .arrowL {
+        height: 10%;
+        color: #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5vh;
+        width: 3vw;
+        cursor: pointer;
+        margin-left: 5vw;
+    }
+
+    .arrowR {
+        height: 10%;
+        color: #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5vh;
+        width: 3vw;
+        cursor: pointer;
+        margin-right: 5vw;
+    }
+    .guiItem2 {
+        /* align-self: center; */
+        height: 100%;
+        width: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    /* #type {
+        height: auto;
+        font-size: auto;
+    } */
+    
+    
+    .guiInput{
+        min-width: 90%;
+        width: 40vw;
+        background-color: #C4C4C4;
+        height: 3vh;
+        font-size: 3vw;
+        font-weight: bold;
+        color: #FFF;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        text-align-last: center;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    
+    .guiInput::placeholder{
+        color: white;
+        font-weight: bold;
+    }
+    
+    .guiSelect {
+        width: 90%;
+        background-color: #C4C4C4;
+        height: 2vh;
+        font-size: .7vw;
+        font-weight: bold;
+        color: white;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .guiItem3 {
+        height: 10%;
+        width: 50%;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .guiBtn {
+        font-family: 'Poppins', sans-serif;
+        width: 40%;
+        height: 3vh;
+        font-size: 3vw;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+    }
+    
+    .cancel {
+        background-color: red;
+    }
+    
+    .create{
+        background-color: #fff;
+    }
+}

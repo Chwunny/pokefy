@@ -37,7 +37,7 @@ const Register = (props) => {
 
       <div className="loginContainer">
         <div className="containerItem1">
-         { resMsg.length > 0 ? <h2 className="loginH2">{resMsg}</h2> : <h2 className="loginH2">Please register</h2>}
+         { resMsg.length > 0 ? <h2 className="registerH2">{resMsg}</h2> : <h2 className="registerH2">Please register</h2>}
         </div>
         <div className="containerItem2 formParent">
           <form className="form">

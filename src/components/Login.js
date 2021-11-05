@@ -47,8 +47,8 @@ const Login = (props) => {
                 <div className="containerItem formParent">
 
                 <form onSubmit={handlerFunction} className="form">
-                    <input type="text" className="input" value={username} placeholder="   Username" onChange={(e) => setUsername(e.target.value)}/>
-                    <input type="password" className="input" value={password} placeholder="   Password" onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="text" className="loginInput" value={username} placeholder="   Username" onChange={(e) => setUsername(e.target.value)}/>
+                    <input type="password" className="loginInput" value={password} placeholder="   Password" onChange={(e) => setPassword(e.target.value)}/>
                     <button style={{display: "none"}}></button>
                 </form>
 

@@ -96,7 +96,7 @@ const NewAlbum = (props) => {
         </div>
 
         <div className="middleBlock">
-          <div className="arrow" onClick={props.minus}>
+          <div className="arrowL" onClick={props.minus}>
             {lArrow}
           </div>
           <div className="guiItem2 guiForm">
@@ -129,7 +129,7 @@ const NewAlbum = (props) => {
               <option value="fighting">Fighting</option>
             </select>
           </div>
-          <div className="arrow" onClick={props.plus}>
+          <div className="arrowR" onClick={props.plus}>
             {rArrow}
           </div>
         </div>

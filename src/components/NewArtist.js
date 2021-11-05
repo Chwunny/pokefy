@@ -114,7 +114,7 @@ const NewArtist = (props) => {
                     </div>
 
                     <div className="middleBlock">
-                    <div className="arrow" onClick={props.minus}>{lArrow}</div>
+                    <div className="arrowL" onClick={props.minus}>{lArrow}</div>
                         <div className="guiItem2 guiForm">
                             <input type="text" className="guiInput " placeholder="Artist" onChange={(e) => search(e.target.value)}/>
                             { data.length > 0 && <ArtistDropdown data={data} handleChange={handleChange} />}
@@ -136,7 +136,7 @@ const NewArtist = (props) => {
                                 </select>
                           
                         </div>
-                        <div className="arrow" onClick={props.plus}>{rArrow}</div>
+                        <div className="arrowR" onClick={props.plus}>{rArrow}</div>
                     </div>
 
 
